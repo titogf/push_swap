@@ -1,6 +1,5 @@
 #include "push_swap.h"
 
-static void	ft_check(int ac, char **av);
 //static void	ft_put_finish(char *c);
 
 int	main(int ac, char **av)
@@ -12,27 +11,27 @@ int	main(int ac, char **av)
 	return (0);
 }
 
-static void	ft_check(int ac, char **av)
+/*static void	ft_renumber(int ac, char **av)
 {
 	int	i;
 	int	j;
+	int	r;
 
-	if (ac < 2)
-		exit (1);
-	i = 0;
-	while (++i < ac)
+	r = -1;
+	while (++r)
 	{
-		j = -1;
-		while (av[i][++j])
+		i = 0;
+		while (++i < ac)
 		{
-			if (av[i][j] < '0' || av[i][j] != ' ')
+			r = av[i][j]
+			j = -1;
+			while (av[i][++j])
 			{
-				if (av[i][j] > '9')
-					exit (1);
+				if (
 			}
 		}
 	}
-}
+}*/
 
 /*static void	ft_put_finish(char *c)
 {

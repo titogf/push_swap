@@ -1,6 +1,28 @@
 #include "push_swap.h"
 
-int	ft_atoi_base(char *str, int base)
+void	ft_check(int ac, char **av)
+{
+	int	i;
+	int	j;
+
+	if (ac < 2)
+		exit (1);
+	i = 0;
+	while (++i < ac)
+	{
+		j = -1;
+		while (av[i][++j])
+		{
+			if (av[i][j] < '0' || av[i][j] != ' ')
+			{
+				if (av[i][j] > '9')
+					exit (1);
+			}
+		}
+	}
+}
+
+int	ft_atoi(char *str)
 {
 	int	i;
 	int	nb;
@@ -21,28 +43,8 @@ int	ft_atoi_base(char *str, int base)
 	}
 	while (str[i])
 	{
-		ft_check(str, i, base);
-		nb = nb * base;
-		nb = nb + ft_return_nb(str, i, base);
+		nb = nb * 10 + (str[i] - 48);
 		i++;
 	}
 	return (nb * sig);
-}
-
-static int	ft_return_nb(char *str, int i, int base)
-{
-	char	*hex1;
-	char	*hex2;
-	int		j;
-
-	j = 0;
-	hex1 = "0123456789abcdef";
-	hex2 = "0123456789ABCDEF";
-	while (j <= base)
-	{
-		if (str[i] == hex1[j] || str[i] == hex2[j])
-			return (j);
-		j++;
-	}
-	return (-1);
 }
