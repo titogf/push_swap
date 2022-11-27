@@ -1,6 +1,49 @@
 #include "push_swap.h"
 
-void	ft_check(int ac, char **av)
+static void	ft_check(int ac, char **av, t_nb nb);
+static void	ft_repnb(t_nb nb);
+
+
+void	ft_check_numbers(int ac, char **av)
+{
+	t_nb	nb;
+	int	lenc;
+	int	lenv;
+
+	nb.numbers = 0;
+	ft_check(ac, av, nb);
+	nb.n = malloc (sizeof (int) * nb.numbers);
+	nb.i = -1;
+	lenc = 0;
+	while (++lenc < ac)
+	{
+		lenv = -1;
+		nb.start = -1;
+		while (av[lenc][++lenv])
+		{
+			while (nb.start == -1 && av[lenc][lenv] == ' ')
+				lenv++;
+			if (nb.start == -1 && av[lenc][lenv] != ' ')
+				nb.start = lenv;
+			if (av[lenc][lenv] == ' ' || av[lenc][lenv + 1] == '\0')
+			{
+				nb.len = lenv - nb.start;
+				if (nb.len == 0 || av[lenc][lenv + 1] == '\0')
+					nb.len++;
+				nb.str = ft_substr(av[lenv], nb);
+				while (av[lenc][lenv + 1] == ' ')
+					lenv++;
+				nb.n[++nb.i] = ft_atoi(nb.str);
+				printf("%d --- %d\n", nb.start, nb.len);
+				nb.start = -1;
+				printf("%s\n", nb.str);
+			}
+		}
+	}
+	ft_repnb(nb);
+}
+
+static void	ft_check(int ac, char **av, t_nb nb)
 {
 	int	i;
 	int	j;
@@ -8,96 +51,36 @@ void	ft_check(int ac, char **av)
 	if (ac < 2)
 		exit (1);
 	i = 0;
+	nb.numbers = 0;
 	while (++i < ac)
 	{
 		j = -1;
 		while (av[i][++j])
-		{
+		{	if (av[i][j] == ' ' && av[i][j + 1] != ' ')
+				nb.numbers++;
 			if (av[i][j] < '0' || av[i][j] != ' ')
 			{
 				if (av[i][j] > '9')
 					exit (1);
 			}
 		}
+		nb.numbers++;
 	}
 }
 
-void	ft_renumber(int ac, char **av)
+static void	ft_repnb(t_nb nb)
 {
-	t_nb	nb;
-	int	lenc;
-	int	lenv;
+	int	i;
+	int	j;
 
-	nb.i = -1;
-	lenc = 0;
-	while (++lenc < ac)
+	i = -1;
+	while (nb.n[++i])
 	{
-		lenv = -1;
-		nb.start = 0;
-		while (av[lenc][++lenv])
+		j = i;
+		while (nb.n[++j])
 		{
-			while (nb.start == 0 && av[lenc][lenv] == ' ')
-				lenv++;
-			if (av[lenc][lenv] != ' ')
-				nb.start = lenv;
-			if (av[lenc][lenv] == ' ' || av[lenc][lenv + 1] == '\0')
-			{
-				nb.len = lenv;
-				nb.str = ft_substr(av[lenv], nb);
-				while (av[lenc][lenv + 1] == ' ')
-					lenv++;
-				nb.n[++nb.i] = ft_atoi(nb.str);
-			}
+			if (nb.n[i] == nb.n[j])
+				ft_put_finish("Error");
 		}
 	}
-}
-
-int	ft_atoi(char *str)
-{
-	int	i;
-	int	nb;
-	int	sig;
-
-	if (!str || !str[0])
-		return (-1);
-	i = 0;
-	nb = 0;
-	sig = 1;
-	if (str[0] == '0' && str[1] == 'x')
-		i = 2;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sig = -1;
-		i++;
-	}
-	while (str[i])
-	{
-		nb = nb * 10 + (str[i] - 48);
-		i++;
-	}
-	return (nb * sig);
-}
-
-char	*ft_substr(char	*str, t_nb nb)
-{
-	int	i;
-	int	len;
-	int	start;
-	char	*c;
-
-	start = nb.start;
-	len = nb.len;
-	c = malloc(sizeof (char *) * len + 1);
-	if (!c)
-		return (NULL);
-	i = 0;
-	while (str[start] && i < len)
-	{
-		c[i] = str[start];
-		start++;
-		i++;
-	}
-	c[i] = '\0';
-	return (c);
 }

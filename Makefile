@@ -1,6 +1,6 @@
 NAME = push_swap
 
-SRC = main.c check_nb.c
+SRC = main.c check_nb.c utils.c
 
 RED	= '\033[1;31m'
 GREEN	= '\033[1;32m'
@@ -11,7 +11,7 @@ OBJS = $(SRC:.c=.o)
 
 CC = gcc
 
-FLAGS = -Wall -Werror -Wextra -fsanitize=address
+FLAGS = -Wall -Werror -Wextra #-fsanitize=address
 
 all: $(NAME)
 
