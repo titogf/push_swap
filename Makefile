@@ -1,6 +1,6 @@
 NAME = push_swap
 
-SRC = main.c utils.c
+SRC = main.c check_nb.c
 
 RED	= '\033[1;31m'
 GREEN	= '\033[1;32m'
