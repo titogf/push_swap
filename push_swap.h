@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/28 13:44:50 by gfernand          #+#    #+#             */
+/*   Updated: 2022/11/28 13:45:52 by gfernand         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "stdio.h"
 #include "unistd.h"
@@ -6,17 +16,17 @@
 
 typedef struct	s_nb
 {
-	int	*n;
-	int	i;
-	int	len;
-	int	start;
-	int	numbers;
+	int		*n;
+	int		i;
+	int		len;
+	int		start;
+	int		numbers;
 	char	*str;
 }	t_nb;
 
 void		ft_put_finish(char *c);
 
-void		ft_check_numbers(int ac, char **av);
+void		ft_check(int ac, char **av);
 
 char		*ft_substr(char	*str, t_nb nb);
-int		ft_atoi(char *str);
+int			ft_atoi(char *str);

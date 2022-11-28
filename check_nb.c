@@ -1,17 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_nb.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/28 13:42:40 by gfernand          #+#    #+#             */
+/*   Updated: 2022/11/28 13:43:30 by gfernand         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static void	ft_check(int ac, char **av, t_nb nb);
+static void	ft_check_numbers(int ac, char **av, t_nb nb);
 static void	ft_repnb(t_nb nb);
 
-
-void	ft_check_numbers(int ac, char **av)
+static void	ft_repnb(t_nb nb)
 {
-	t_nb	nb;
+	int	i;
+	int	j;
+
+	i = -1;
+	while (nb.n[++i])
+	{
+		j = i;
+		while (nb.n[++j])
+		{
+			if (nb.n[i] == nb.n[j])
+				ft_put_finish("Error");
+		}
+	}
+}
+
+static void	ft_check_numbers(int ac, char **av, t_nb nb)
+{
 	int	lenc;
 	int	lenv;
 
-	nb.numbers = 0;
-	ft_check(ac, av, nb);
 	nb.n = malloc (sizeof (int) * nb.numbers);
 	nb.i = -1;
 	lenc = 0;
@@ -31,56 +56,40 @@ void	ft_check_numbers(int ac, char **av)
 				if (nb.len == 0 || av[lenc][lenv + 1] == '\0')
 					nb.len++;
 				nb.str = ft_substr(av[lenv], nb);
-				while (av[lenc][lenv + 1] == ' ')
-					lenv++;
 				nb.n[++nb.i] = ft_atoi(nb.str);
 				printf("%d --- %d\n", nb.start, nb.len);
+				printf("%d\n", nb.n[nb.i]);
 				nb.start = -1;
-				printf("%s\n", nb.str);
 			}
 		}
 	}
-	ft_repnb(nb);
 }
 
-static void	ft_check(int ac, char **av, t_nb nb)
+void	ft_check(int ac, char **av)
 {
-	int	i;
-	int	j;
+	t_nb	nb;
+	int		i;
+	int		j;
 
-	if (ac < 2)
-		exit (1);
 	i = 0;
 	nb.numbers = 0;
 	while (++i < ac)
 	{
 		j = -1;
 		while (av[i][++j])
-		{	if (av[i][j] == ' ' && av[i][j + 1] != ' ')
+		{	
+			if (av[i][j] == ' ' && av[i][j + 1] != ' ' && av[i][j + 1] != '\0')
 				nb.numbers++;
+			if (j == 0 && av[i][j] == ' ')
+				nb.numbers--;
 			if (av[i][j] < '0' || av[i][j] != ' ')
 			{
-				if (av[i][j] > '9')
+				if (av[i][j] > '9' && av[i][j] != '-')
 					exit (1);
 			}
 		}
 		nb.numbers++;
 	}
-}
-
-static void	ft_repnb(t_nb nb)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	while (nb.n[++i])
-	{
-		j = i;
-		while (nb.n[++j])
-		{
-			if (nb.n[i] == nb.n[j])
-				ft_put_finish("Error");
-		}
-	}
+	ft_check_numbers(ac, av, nb);
+	ft_repnb(nb);
 }

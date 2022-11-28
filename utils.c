@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/28 13:42:06 by gfernand          #+#    #+#             */
+/*   Updated: 2022/11/28 13:44:17 by gfernand         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -28,9 +39,9 @@ int	ft_atoi(char *str)
 
 char	*ft_substr(char	*str, t_nb nb)
 {
-	int	i;
-	int	len;
-	int	start;
+	int		i;
+	int		len;
+	int		start;
 	char	*c;
 
 	start = nb.start;
