@@ -6,15 +6,18 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:44:50 by gfernand          #+#    #+#             */
-/*   Updated: 2022/11/28 13:45:52 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/11/28 13:52:48 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stdio.h"
-#include "unistd.h"
-#include "stdlib.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-typedef struct	s_nb
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+
+typedef struct s_nb
 {
 	int		*n;
 	int		i;
@@ -30,3 +33,4 @@ void		ft_check(int ac, char **av);
 
 char		*ft_substr(char	*str, t_nb nb);
 int			ft_atoi(char *str);
+#endif
