@@ -6,14 +6,14 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:42:40 by gfernand          #+#    #+#             */
-/*   Updated: 2022/11/28 14:13:56 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:49:21 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static void	ft_check_numbers(int ac, char **av, t_nb nb);
-static void	ft_repnb(t_nb nb);
+/*static void	ft_repnb(t_nb nb);
 
 static void	ft_repnb(t_nb nb)
 {
@@ -30,7 +30,7 @@ static void	ft_repnb(t_nb nb)
 				ft_put_finish("Error");
 		}
 	}
-}
+}*/
 
 static void	ft_check_numbers(int ac, char **av, t_nb nb)
 {
@@ -62,10 +62,11 @@ static void	ft_check_numbers(int ac, char **av, t_nb nb)
 				nb.len = jv - nb.start;
 				if (nb.len == 0 || av[yc][jv + 1] == '\0')
 					nb.len++;
-				nb.str = ft_substr(av[jv], nb);
+				nb.str = ft_substr(av[jv], nb.start, nb.len);
 				nb.n[++nb.i] = ft_atoi(nb.str);
-				printf("%d --- %d\n", nb.start, nb.len);
-				printf("%d\n", nb.n[nb.i]);
+				printf("START AND LEN->%d , %d\n", nb.start, nb.len);
+				printf("   STR->%s\n", nb.str);
+				printf("   NB= %d\n", nb.n[nb.i]);
 				nb.start = -1;
 			}
 		}
@@ -98,5 +99,5 @@ void	ft_check(int ac, char **av)
 		nb.numbers++;
 	}
 	ft_check_numbers(ac, av, nb);
-	ft_repnb(nb);
+//	ft_repnb(nb);
 }

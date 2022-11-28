@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:42:06 by gfernand          #+#    #+#             */
-/*   Updated: 2022/11/28 13:44:17 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:49:23 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,11 @@ int	ft_atoi(char *str)
 	return (nb * sig);
 }
 
-char	*ft_substr(char	*str, t_nb nb)
+char	*ft_substr(char	*str, int start, int len)
 {
 	int		i;
-	int		len;
-	int		start;
 	char	*c;
 
-	start = nb.start;
-	len = nb.len;
 	c = malloc(sizeof (char *) * len + 1);
 	if (!c)
 		return (NULL);

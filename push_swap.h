@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:44:50 by gfernand          #+#    #+#             */
-/*   Updated: 2022/11/28 13:52:48 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:28:52 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ void		ft_put_finish(char *c);
 
 void		ft_check(int ac, char **av);
 
-char		*ft_substr(char	*str, t_nb nb);
+char		*ft_substr(char	*str, int start, int len);
 int			ft_atoi(char *str);
 #endif
