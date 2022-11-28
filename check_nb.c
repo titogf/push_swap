@@ -51,6 +51,8 @@ static void	ft_save_nb(int ac, char **av, t_nb nb)
 		{
 			while (nb.start == -1 && av[lenc][lenv] == ' ')
 				lenv++;
+			if (!av[lenc][lenv])
+				exit (1);
 			if (nb.start == -1 && av[lenc][lenv] != ' ')
 				nb.start = lenv;
 			if (av[lenc][lenv] == ' ' || av[lenc][lenv + 1] == '\0')
