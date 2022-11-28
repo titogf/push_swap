@@ -6,13 +6,14 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:42:40 by gfernand          #+#    #+#             */
-/*   Updated: 2022/11/28 17:28:02 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/11/28 18:06:32 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_check_numbers(int ac, char **av, t_nb nb);
+static void	ft_save_nb(int ac, char **av, t_nb nb);
+static void	ft_check_numbers(char **av, int i, int j);
 /*static void	ft_repnb(t_nb nb);
 
 static void	ft_repnb(t_nb nb)
@@ -32,13 +33,15 @@ static void	ft_repnb(t_nb nb)
 	}
 }*/
 
-static void	ft_check_numbers(int ac, char **av, t_nb nb)
+static void	ft_save_nb(int ac, char **av, t_nb nb)
 {
-	int	lenc;
-	int	lenv;
+	int		i;
+	int		lenc;
+	int		lenv;
+	char	*str;
 
 	nb.n = malloc (sizeof (int) * nb.numbers);
-	nb.i = -1;
+	i = -1;
 	lenc = 0;
 	while (++lenc < ac)
 	{
@@ -48,13 +51,6 @@ static void	ft_check_numbers(int ac, char **av, t_nb nb)
 		{
 			while (nb.start == -1 && av[lenc][lenv] == ' ')
 				lenv++;
-			/*if (av[lenc][lenv] == '+' || av[lenc][lenv] == '-')
-			{
-				if (av[lenc][lenv + 1] < '0' || av[lenc][lenv + 1] > '9')
-					ft_put_finish("Error");
-				if (lenv > 0 && av[lenc][lenv - 1] != ' ')
-					ft_put_finish("Error");
-			}*/
 			if (nb.start == -1 && av[lenc][lenv] != ' ')
 				nb.start = lenv;
 			if (av[lenc][lenv] == ' ' || av[lenc][lenv + 1] == '\0')
@@ -62,16 +58,34 @@ static void	ft_check_numbers(int ac, char **av, t_nb nb)
 				nb.len = lenv - nb.start;
 				if (nb.len == 0 || av[lenc][lenv + 1] == '\0')
 					nb.len++;
-				nb.str = ft_substr(av[lenc], nb.start, nb.len);
-				nb.n[++nb.i] = ft_atoi(nb.str);
+				str = ft_substr(av[lenc], nb.start, nb.len);
+				nb.n[++i] = ft_atoi(str);
 				printf("START AND LEN->%d , %d\n", nb.start, nb.len);
-				printf("   STR->%s\n", nb.str);
-				printf("   NB= %d\n", nb.n[nb.i]);
+				printf("   STR->%s\n", str);
+				printf("   NB= %d\n", nb.n[i]);
 				nb.start = -1;
-				free (nb.str);
+				free (str);
 			}
 		}
 	}
+}
+
+static void	ft_check_numbers(char **av, int i, int j)
+{
+			if (av[i][j] < '0' || av[i][j] != ' ')
+			{
+				if (av[i][j] > '9' && av[i][j] != '-' && av[i][j] != '+')
+					exit (1);
+			}
+			if (av[i][j] == '+' || av[i][j] == '-')
+			{
+				if (!av[i][j + 1])
+					ft_put_finish("Error");
+				else if (av[i][j + 1] < '0' || av[i][j + 1] > '9')
+					ft_put_finish("Error");
+				if (j > 0 && av[i][j - 1] != ' ')
+					ft_put_finish("Error");
+			}
 }
 
 void	ft_check(int ac, char **av)
@@ -91,15 +105,11 @@ void	ft_check(int ac, char **av)
 				nb.numbers++;
 			if (j == 0 && av[i][j] == ' ')
 				nb.numbers--;
-			if (av[i][j] < '0' || av[i][j] != ' ')
-			{
-				if (av[i][j] > '9' && av[i][j] != '-' && av[i][j] != '+')
-					exit (1);
-			}
+			ft_check_numbers(av, i, j);
 		}
 		nb.numbers++;
 	}
-	ft_check_numbers(ac, av, nb);
+	ft_save_nb(ac, av, nb);
 //	ft_repnb(nb);
-	free (nb.n);
+//	free (nb.n);
 }

@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:44:50 by gfernand          #+#    #+#             */
-/*   Updated: 2022/11/28 16:28:52 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/11/28 18:06:31 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@
 
 typedef struct s_nb
 {
-	int		*n;
-	int		i;
-	int		len;
-	int		start;
-	int		numbers;
-	char	*str;
+	int	*n;
+	int	len;
+	int	start;
+	int	numbers;
 }	t_nb;
 
 void		ft_put_finish(char *c);
