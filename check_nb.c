@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:42:40 by gfernand          #+#    #+#             */
-/*   Updated: 2022/11/28 16:49:21 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/11/28 17:28:02 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,40 +34,41 @@ static void	ft_repnb(t_nb nb)
 
 static void	ft_check_numbers(int ac, char **av, t_nb nb)
 {
-	int	yc;
-	int	jv;
+	int	lenc;
+	int	lenv;
 
 	nb.n = malloc (sizeof (int) * nb.numbers);
 	nb.i = -1;
-	yc = 0;
-	while (++yc < ac)
+	lenc = 0;
+	while (++lenc < ac)
 	{
-		jv = -1;
+		lenv = -1;
 		nb.start = -1;
-		while (av[yc][++jv])
+		while (av[lenc][++lenv])
 		{
-			while (nb.start == -1 && av[yc][jv] == ' ')
-				jv++;
-			if (av[yc][jv] == '+' || av[yc][jv] == '-')
+			while (nb.start == -1 && av[lenc][lenv] == ' ')
+				lenv++;
+			/*if (av[lenc][lenv] == '+' || av[lenc][lenv] == '-')
 			{
-				if (av[yc][jv + 1] < '0' || av[yc][jv + 1] > '9')
+				if (av[lenc][lenv + 1] < '0' || av[lenc][lenv + 1] > '9')
 					ft_put_finish("Error");
-				if (jv > 0 && av[yc][jv - 1] != ' ')
+				if (lenv > 0 && av[lenc][lenv - 1] != ' ')
 					ft_put_finish("Error");
-			}
-			if (nb.start == -1 && av[yc][jv] != ' ')
-				nb.start = jv;
-			if (av[yc][jv] == ' ' || av[yc][jv + 1] == '\0')
+			}*/
+			if (nb.start == -1 && av[lenc][lenv] != ' ')
+				nb.start = lenv;
+			if (av[lenc][lenv] == ' ' || av[lenc][lenv + 1] == '\0')
 			{
-				nb.len = jv - nb.start;
-				if (nb.len == 0 || av[yc][jv + 1] == '\0')
+				nb.len = lenv - nb.start;
+				if (nb.len == 0 || av[lenc][lenv + 1] == '\0')
 					nb.len++;
-				nb.str = ft_substr(av[jv], nb.start, nb.len);
+				nb.str = ft_substr(av[lenc], nb.start, nb.len);
 				nb.n[++nb.i] = ft_atoi(nb.str);
 				printf("START AND LEN->%d , %d\n", nb.start, nb.len);
 				printf("   STR->%s\n", nb.str);
 				printf("   NB= %d\n", nb.n[nb.i]);
 				nb.start = -1;
+				free (nb.str);
 			}
 		}
 	}
@@ -100,4 +101,5 @@ void	ft_check(int ac, char **av)
 	}
 	ft_check_numbers(ac, av, nb);
 //	ft_repnb(nb);
+	free (nb.n);
 }
