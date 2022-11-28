@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:42:40 by gfernand          #+#    #+#             */
-/*   Updated: 2022/11/28 18:06:32 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/11/28 18:15:08 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,20 +72,20 @@ static void	ft_save_nb(int ac, char **av, t_nb nb)
 
 static void	ft_check_numbers(char **av, int i, int j)
 {
-			if (av[i][j] < '0' || av[i][j] != ' ')
-			{
-				if (av[i][j] > '9' && av[i][j] != '-' && av[i][j] != '+')
-					exit (1);
-			}
-			if (av[i][j] == '+' || av[i][j] == '-')
-			{
-				if (!av[i][j + 1])
-					ft_put_finish("Error");
-				else if (av[i][j + 1] < '0' || av[i][j + 1] > '9')
-					ft_put_finish("Error");
-				if (j > 0 && av[i][j - 1] != ' ')
-					ft_put_finish("Error");
-			}
+	if (av[i][j] < '0' || av[i][j] != ' ')
+	{
+		if (av[i][j] > '9' && av[i][j] != '-' && av[i][j] != '+')
+			exit (1);
+	}
+	if (av[i][j] == '+' || av[i][j] == '-')
+	{
+		if (!av[i][j + 1])
+			ft_put_finish("Error");
+		else if (av[i][j + 1] < '0' || av[i][j + 1] > '9')
+			ft_put_finish("Error");
+		if (j > 0 && av[i][j - 1] != ' ')
+			ft_put_finish("Error");
+	}
 }
 
 void	ft_check(int ac, char **av)
