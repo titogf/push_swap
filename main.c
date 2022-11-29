@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-static void	leaks()
+/*static void	leaks()
 {
 	system("leaks push_swap");
-}
+}*/
 
 int	main(int ac, char **av)
 {
-	atexit(leaks);
+	//atexit(leaks);
 	if (ac < 2)
 		exit (1);
 	ft_check(ac, av);

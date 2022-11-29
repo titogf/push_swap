@@ -40,7 +40,6 @@ static void	ft_save_nb(int ac, char **av, t_nb nb)
 	int		lenv;
 	char	*str;
 
-	nb.n = malloc (sizeof (int) * nb.numbers);
 	i = -1;
 	lenc = 0;
 	while (++lenc < ac)
@@ -111,7 +110,9 @@ void	ft_check(int ac, char **av)
 		}
 		nb.numbers++;
 	}
+	printf("NUMBERS->%d\n", nb.numbers);
+	nb.n = malloc (sizeof (int) * nb.numbers);
 	ft_save_nb(ac, av, nb);
 //	ft_repnb(nb);
-//	free (nb.n);
+	free (nb.n);
 }
