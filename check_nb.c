@@ -64,8 +64,7 @@ static void	ft_save_nb(int ac, char **av, t_nb nb)
 				str = ft_substr(av[lenc], nb.start, nb.len);
 				nb.n[++i] = ft_atoi(str);
 				printf("START AND LEN->%d , %d\n", nb.start, nb.len);
-				printf("   STR->%s\n", str);
-				printf("   NB= %d\n", nb.n[i]);
+				printf("  STR->%s   NB= %d\n", str, nb.n[i]);
 				nb.start = -1;
 				free (str);
 			}
@@ -80,7 +79,7 @@ static void	ft_check_numbers(char **av, int i, int j)
 	if (av[i][j] < '0' || av[i][j] != ' ')
 	{
 		if (av[i][j] > '9' && av[i][j] != '-' && av[i][j] != '+')
-			exit (1);
+			ft_put_finish("Error");
 	}
 	if (av[i][j] == '+' || av[i][j] == '-')
 	{
@@ -114,9 +113,9 @@ void	ft_check(int ac, char **av)
 		}
 		nb.numbers++;
 	}
-	printf("   NB= %d\n", nb.numbers);
+	printf("NUMBERS = %d\n", nb.numbers);
 	nb.n = malloc (sizeof (int) * nb.numbers);
 	ft_save_nb(ac, av, nb);
-	//ft_repnb(nb);
+//	ft_repnb(nb);
 	free (nb.n);
 }
