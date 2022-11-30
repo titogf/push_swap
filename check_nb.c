@@ -50,7 +50,7 @@ static void	ft_save_nb(int ac, char **av, t_nb nb)
 		{
 			while (nb.start == -1 && av[lenc][lenv] == ' ')
 				lenv++;
-			if (!av[lenc][lenv])
+			if (!av[lenc][lenv] && lenc >= ac)
 				exit (1);
 			if (nb.start == -1 && av[lenc][lenv] != ' ')
 				nb.start = lenv;
@@ -59,6 +59,8 @@ static void	ft_save_nb(int ac, char **av, t_nb nb)
 				nb.len = lenv - nb.start;
 				if (nb.len == 0 || av[lenc][lenv + 1] == '\0')
 					nb.len++;
+				if (av[lenc][lenv] == ' ' && av[lenc][lenv + 1] == '\0')
+					nb.len--;
 				str = ft_substr(av[lenc], nb.start, nb.len);
 				nb.n[++i] = ft_atoi(str);
 				printf("START AND LEN->%d , %d\n", nb.start, nb.len);
@@ -67,6 +69,8 @@ static void	ft_save_nb(int ac, char **av, t_nb nb)
 				nb.start = -1;
 				free (str);
 			}
+			if (!av[lenc][lenv])
+				lenv--;
 		}
 	}
 }
@@ -110,9 +114,9 @@ void	ft_check(int ac, char **av)
 		}
 		nb.numbers++;
 	}
-	printf("NUMBERS->%d\n", nb.numbers);
+	printf("   NB= %d\n", nb.numbers);
 	nb.n = malloc (sizeof (int) * nb.numbers);
 	ft_save_nb(ac, av, nb);
-//	ft_repnb(nb);
+	//ft_repnb(nb);
 	free (nb.n);
 }
