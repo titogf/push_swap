@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:44:50 by gfernand          #+#    #+#             */
-/*   Updated: 2022/12/01 12:53:42 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/12/01 15:38:10 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 
 typedef struct s_nb
 {

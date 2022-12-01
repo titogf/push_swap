@@ -6,11 +6,32 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:42:06 by gfernand          #+#    #+#             */
-/*   Updated: 2022/12/01 12:43:43 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/12/01 15:40:06 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	ft_max_int(char *str, int i, int nb, int sig);
+
+char	*ft_substr(char	*str, int start, int len)
+{
+	int		i;
+	char	*c;
+
+	c = malloc(sizeof (char *) * len + 1);
+	if (!c)
+		return (NULL);
+	i = 0;
+	while (str[start] && i < len)
+	{
+		c[i] = str[start];
+		start++;
+		i++;
+	}
+	c[i] = '\0';
+	return (c);
+}
 
 int	ft_atoi(char *str)
 {
@@ -32,26 +53,26 @@ int	ft_atoi(char *str)
 	while (str[i])
 	{
 		nb = nb * 10 + (str[i] - 48);
+		ft_max_int(str, i, nb, sig);
 		i++;
 	}
 	return (nb * sig);
 }
 
-char	*ft_substr(char	*str, int start, int len)
+static int	ft_max_int(char *str, int i, int nb, int sig)
 {
-	int		i;
-	char	*c;
+	int	m;
 
-	c = malloc(sizeof (char *) * len + 1);
-	if (!c)
-		return (NULL);
-	i = 0;
-	while (str[start] && i < len)
+	if (nb >= 214748364 && str[i + 1])
 	{
-		c[i] = str[start];
-		start++;
-		i++;
+		if (str[i + 2])
+			ft_put_finish("Error\n");
+		m = (str[++i] - 48);
+		if (m > 8)
+			ft_put_finish("Error\n");
+		else if (m == 8 && sig > 0)
+			ft_put_finish("Error\n");
+		nb = nb * 10 + (str[i] - 48);
 	}
-	c[i] = '\0';
-	return (c);
+	return (nb);
 }
