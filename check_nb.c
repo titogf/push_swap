@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:42:40 by gfernand          #+#    #+#             */
-/*   Updated: 2022/12/01 17:37:03 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/12/01 18:19:12 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,27 @@ static void	ft_repnb(t_nb nb)
 		while (++j < nb.numbers)
 		{
 			if (nb.n[i] == nb.n[j])
-				ft_put_finish("Error\n");
+				ft_put_finish("Eor\n");
 		}
 	}
 }
-/*
-static void	ft_convert(t_nb nb, char **av, int lenc, int lenv)
+
+/*static void	ft_convert(t_nb nb, char **av, int lenc, int lenv)
 {
-	char	*str;
+	//char	*str;
 
 	nb.len = lenv - nb.start;
 	if (nb.len == 0 || av[lenc][lenv + 1] == '\0')
 		nb.len++;
 	if (av[lenc][lenv] == ' ' && av[lenc][lenv + 1] == '\0')
 		nb.len--;
-	str = ft_substr(av[lenc], nb.start, nb.len);
-	nb.n[++nb.arr] = ft_atoi(str);
-	printf("NNUMBER= %d\n", nb.n[nb.arr]);
-	nb.start = -1;
-	free (str);
-}
-*/
+//	str = ft_substr(av[lenc], nb.start, nb.len);
+//	nb.n[++nb.arr] = ft_atoi(str);
+//	printf("STRING= %s\nNUMBER= %d\n", str, nb.n[nb.arr]);
+//	nb.start = -1;
+//	free (str);
+}*/
+
 static void	ft_save_nb(int ac, char **av, t_nb nb)
 {
 	int		lenc;
@@ -69,7 +69,6 @@ static void	ft_save_nb(int ac, char **av, t_nb nb)
 			if (nb.start == -1 && av[lenc][lenv] != ' ' && av[lenc][lenv])
 				nb.start = lenv;
 			if (nb.start != -1 && (av[lenc][lenv] == ' ' || !av[lenc][lenv + 1]))
-			//	ft_convert(nb, av, lenc, lenv);
 			{
 				nb.len = lenv - nb.start;
 				if (nb.len == 0 || av[lenc][lenv + 1] == '\0')
