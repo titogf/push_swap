@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:42:40 by gfernand          #+#    #+#             */
-/*   Updated: 2022/12/01 15:40:49 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/12/01 16:31:24 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,9 @@ static void	ft_save_nb(int ac, char **av, t_nb nb)
 		{
 			while (nb.start == -1 && av[lenc][lenv] == ' ')
 				lenv++;
-			if (!av[lenc][lenv] && lenc >= ac)
-				return ;
-			if (nb.start == -1 && av[lenc][lenv] != ' ')
+			if (nb.start == -1 && av[lenc][lenv] != ' ' && av[lenc][lenv])
 				nb.start = lenv;
-			if (av[lenc][lenv] == ' ' || av[lenc][lenv + 1] == '\0')
+			if (nb.start != -1 && (av[lenc][lenv] == ' ' || !av[lenc][lenv + 1]))
 			{
 				nb.len = lenv - nb.start;
 				if (nb.len == 0 || av[lenc][lenv + 1] == '\0')
@@ -63,7 +61,7 @@ static void	ft_save_nb(int ac, char **av, t_nb nb)
 					nb.len--;
 				str = ft_substr(av[lenc], nb.start, nb.len);
 				nb.n[++i] = ft_atoi(str);
-				printf("SUBSTR->%s	ATOI= %d\n", str, nb.n[i]);
+				printf("NNUMBER= %d\n", nb.n[i]);
 				nb.start = -1;
 				free (str);
 			}
