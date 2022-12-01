@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:44:50 by gfernand          #+#    #+#             */
-/*   Updated: 2022/12/01 15:38:10 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/12/01 17:28:06 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 typedef struct s_nb
 {
+	int	arr;
 	int	*n;
 	int	len;
 	int	start;

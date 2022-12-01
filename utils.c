@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:42:06 by gfernand          #+#    #+#             */
-/*   Updated: 2022/12/01 15:40:06 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/12/01 17:30:14 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,12 @@ static int	ft_max_int(char *str, int i, int nb, int sig)
 {
 	int	m;
 
-	if (nb >= 214748364 && str[i + 1])
+	if (nb > 214748364)
+	{
+		if (str[i + 1])
+			ft_put_finish("Error\n");
+	}
+	if (nb == 214748364 && str[i + 1])
 	{
 		if (str[i + 2])
 			ft_put_finish("Error\n");
