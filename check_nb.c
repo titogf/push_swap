@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:42:40 by gfernand          #+#    #+#             */
-/*   Updated: 2022/11/28 18:15:08 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/12/01 12:53:44 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_save_nb(int ac, char **av, t_nb nb);
 static void	ft_check_numbers(char **av, int i, int j);
-/*static void	ft_repnb(t_nb nb);
+static void	ft_repnb(t_nb nb);
 
 static void	ft_repnb(t_nb nb)
 {
@@ -22,16 +22,16 @@ static void	ft_repnb(t_nb nb)
 	int	j;
 
 	i = -1;
-	while (nb.n[++i])
+	while (++i < nb.numbers)
 	{
 		j = i;
-		while (nb.n[++j])
+		while (++j < nb.numbers)
 		{
 			if (nb.n[i] == nb.n[j])
 				ft_put_finish("Error");
 		}
 	}
-}*/
+}
 
 static void	ft_save_nb(int ac, char **av, t_nb nb)
 {
@@ -116,6 +116,6 @@ void	ft_check(int ac, char **av)
 	printf("NUMBERS = %d\n", nb.numbers);
 	nb.n = malloc (sizeof (int) * nb.numbers);
 	ft_save_nb(ac, av, nb);
-//	ft_repnb(nb);
+	ft_repnb(nb);
 	free (nb.n);
 }
