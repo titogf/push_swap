@@ -14,48 +14,48 @@
 
 static void	ft_check_numbers(char **av, int i, int j);
 
-void	ft_repnb(t_nb nb)
+void	ft_repnb(t_nb *nb)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	while (++i < nb.numbers)
+	while (++i < nb->numbers)
 	{
 		j = i;
-		while (++j < nb.numbers)
+		while (++j < nb->numbers)
 		{
-			if (nb.n[i] == nb.n[j])
+			if (nb->n[i] == nb->n[j])
 				ft_put_finish("Error\n");
 		}
 	}
 }
 
-void	ft_save_nb(int ac, char **av, t_nb nb)
+void	ft_save_nb(int ac, char **av, t_nb *nb)
 {
-	int	lenc;
-	int	lenv;
+	int	i;
+	int	j;
 
-	lenc = 0;
-	while (++lenc < ac)
+	i = 0;
+	while (++i < ac)
 	{
-		lenv = -1;
-		while (av[lenc][++lenv])
+		j = -1;
+		while (av[i][++j])
 		{
-			while (nb.start == -1 && av[lenc][lenv] == ' ' && av[lenc][lenv + 1])
-				lenv++;
-			if (nb.start == -1 && av[lenc][lenv] != ' ' && av[lenc][lenv])
-				nb.start = lenv;
-			if (nb.start != -1 && (av[lenc][lenv] == ' ' || !av[lenc][lenv + 1]))
+			while (nb->start == -1 && av[i][j] == ' ' && av[i][j + 1])
+				j++;
+			if (nb->start == -1 && av[i][j] != ' ' && av[i][j])
+				nb->start = j;
+			if (nb->start != -1 && (av[i][j] == ' ' || !av[i][j + 1]))
 			{
-				nb.len = lenv - nb.start;
-				if (av[lenc][lenv] != ' ' && av[lenc][lenv + 1] == '\0')
-					nb.len++;
-				nb.str = ft_substr(av[lenc], nb.start, nb.len);
-				nb.n[++nb.arr] = ft_atoi(nb.str);
-				printf("NUMBER= %d\n", nb.n[nb.arr]);
-				nb.start = -1;
-				free (nb.str);
+				nb->len = j - nb->start;
+				if (av[i][j] != ' ' && av[i][j + 1] == '\0')
+					nb->len++;
+				nb->str = ft_substr(av[i], nb->start, nb->len);
+				nb->n[++nb->arr] = ft_atoi(nb->str);
+				printf("NUMBER= %d\n", nb->n[nb->arr]);
+				nb->start = -1;
+				free (nb->str);
 			}
 		}
 	}
@@ -79,7 +79,7 @@ static void	ft_check_numbers(char **av, int i, int j)
 	}
 }
 
-int	ft_count(int ac, char **av, t_nb nb)
+int	ft_count(int ac, char **av, t_nb *nb)
 {
 	int		i;
 	int		j;
@@ -91,14 +91,12 @@ int	ft_count(int ac, char **av, t_nb nb)
 		while (av[i][++j])
 		{	
 			if (av[i][j] == ' ' && av[i][j + 1] != ' ' && av[i][j + 1] != '\0')
-				nb.numbers++;
+				nb->numbers++;
 			if (j == 0 && av[i][j] == ' ')
-				nb.numbers--;
+				nb->numbers--;
 			ft_check_numbers(av, i, j);
 		}
-		nb.numbers++;
+		nb->numbers++;
 	}
-	nb.arr = -1;
-	nb.start = -1;
-	return (nb.numbers);
+	return (nb->numbers);
 }

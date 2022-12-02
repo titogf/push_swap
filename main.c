@@ -12,6 +12,8 @@
 
 #include "push_swap.h"
 
+static void	ft_initialise(t_nb *nb);
+
 /*static void	leaks()
 {
 	system("leaks push_swap");
@@ -19,20 +21,28 @@
 
 int	main(int ac, char **av)
 {
-	t_nb	nb;
+	t_nb	*nb;
+
 	//atexit(leaks);
 	if (ac < 2)
 		exit (1);
-	nb.numbers = 0;
-	nb.numbers = ft_count(ac, av, nb);
-	nb.n = malloc (sizeof (int) * nb.numbers);
-	if (!nb.n)
+	nb = malloc (sizeof (t_nb));
+	ft_initialise(nb);
+	ft_count(ac, av, nb);
+	nb->n = malloc (sizeof (int) * nb->numbers);
+	if (!nb->n)
 		return (0);
-	nb.arr = -1;
 	ft_save_nb(ac, av, nb);
 	ft_repnb(nb);
-	free (nb.n);
+	free (nb->n);
 	return (0);
+}
+
+static void	ft_initialise(t_nb *nb)
+{
+	nb->numbers = 0;
+	nb->start = -1;
+	nb->arr = -1;
 }
 
 void	ft_put_finish(char *c)
