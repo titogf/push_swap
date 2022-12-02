@@ -20,16 +20,19 @@
 
 typedef struct s_nb
 {
-	int	arr;
-	int	*n;
-	int	len;
-	int	start;
-	int	numbers;
+	int		arr;
+	int		*n;
+	int		len;
+	int		start;
+	int		numbers;
+	char	*str;
 }	t_nb;
 
 void		ft_put_finish(char *c);
 
-void		ft_check(int ac, char **av);
+void		ft_repnb(t_nb nb);
+void		ft_save_nb(int ac, char **av, t_nb nb);
+int		ft_count(int ac, char **av, t_nb nb);
 
 char		*ft_substr(char	*str, int start, int len);
 int			ft_atoi(char *str);

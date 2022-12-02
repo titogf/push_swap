@@ -19,10 +19,19 @@
 
 int	main(int ac, char **av)
 {
+	t_nb	nb;
 	//atexit(leaks);
 	if (ac < 2)
 		exit (1);
-	ft_check(ac, av);
+	nb.numbers = 0;
+	nb.numbers = ft_count(ac, av, nb);
+	nb.n = malloc (sizeof (int) * nb.numbers);
+	if (!nb.n)
+		return (0);
+	nb.arr = -1;
+	ft_save_nb(ac, av, nb);
+	ft_repnb(nb);
+	free (nb.n);
 	return (0);
 }
 

@@ -12,11 +12,9 @@
 
 #include "push_swap.h"
 
-static void	ft_repnb(t_nb nb);
-static void	ft_save_nb(int ac, char **av, t_nb nb);
 static void	ft_check_numbers(char **av, int i, int j);
 
-static void	ft_repnb(t_nb nb)
+void	ft_repnb(t_nb nb)
 {
 	int	i;
 	int	j;
@@ -33,18 +31,15 @@ static void	ft_repnb(t_nb nb)
 	}
 }
 
-static void	ft_save_nb(int ac, char **av, t_nb nb)
+void	ft_save_nb(int ac, char **av, t_nb nb)
 {
-	int		lenc;
-	int		lenv;
-	char	*str;
+	int	lenc;
+	int	lenv;
 
-	nb.arr = -1;
 	lenc = 0;
 	while (++lenc < ac)
 	{
 		lenv = -1;
-		nb.start = -1;
 		while (av[lenc][++lenv])
 		{
 			while (nb.start == -1 && av[lenc][lenv] == ' ' && av[lenc][lenv + 1])
@@ -56,11 +51,11 @@ static void	ft_save_nb(int ac, char **av, t_nb nb)
 				nb.len = lenv - nb.start;
 				if (av[lenc][lenv] != ' ' && av[lenc][lenv + 1] == '\0')
 					nb.len++;
-				str = ft_substr(av[lenc], nb.start, nb.len);
-				nb.n[++nb.arr] = ft_atoi(str);
+				nb.str = ft_substr(av[lenc], nb.start, nb.len);
+				nb.n[++nb.arr] = ft_atoi(nb.str);
 				printf("NUMBER= %d\n", nb.n[nb.arr]);
 				nb.start = -1;
-				free (str);
+				free (nb.str);
 			}
 		}
 	}
@@ -84,14 +79,12 @@ static void	ft_check_numbers(char **av, int i, int j)
 	}
 }
 
-void	ft_check(int ac, char **av)
+int	ft_count(int ac, char **av, t_nb nb)
 {
-	t_nb	nb;
 	int		i;
 	int		j;
 
 	i = 0;
-	nb.numbers = 0;
 	while (++i < ac)
 	{
 		j = -1;
@@ -105,10 +98,7 @@ void	ft_check(int ac, char **av)
 		}
 		nb.numbers++;
 	}
-	nb.n = malloc (sizeof (int) * nb.numbers);
-	if (!nb.n)
-		return ;
-	ft_save_nb(ac, av, nb);
-	ft_repnb(nb);
-	free (nb.n);
+	nb.arr = -1;
+	nb.start = -1;
+	return (nb.numbers);
 }
