@@ -19,6 +19,8 @@ char	*ft_substr(char	*str, int start, int len)
 	int		i;
 	char	*c;
 
+	if (len == 0)
+		len++;
 	c = malloc(sizeof (char *) * len + 1);
 	if (!c)
 		return (NULL);

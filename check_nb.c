@@ -15,7 +15,6 @@
 static void	ft_repnb(t_nb nb);
 static void	ft_save_nb(int ac, char **av, t_nb nb);
 static void	ft_check_numbers(char **av, int i, int j);
-//static void	ft_convert(t_nb nb, char **av, int lenc, int lenv);
 
 static void	ft_repnb(t_nb nb)
 {
@@ -29,26 +28,10 @@ static void	ft_repnb(t_nb nb)
 		while (++j < nb.numbers)
 		{
 			if (nb.n[i] == nb.n[j])
-				ft_put_finish("Eor\n");
+				ft_put_finish("Error\n");
 		}
 	}
 }
-
-/*static void	ft_convert(t_nb nb, char **av, int lenc, int lenv)
-{
-	//char	*str;
-
-	nb.len = lenv - nb.start;
-	if (nb.len == 0 || av[lenc][lenv + 1] == '\0')
-		nb.len++;
-	if (av[lenc][lenv] == ' ' && av[lenc][lenv + 1] == '\0')
-		nb.len--;
-//	str = ft_substr(av[lenc], nb.start, nb.len);
-//	nb.n[++nb.arr] = ft_atoi(str);
-//	printf("STRING= %s\nNUMBER= %d\n", str, nb.n[nb.arr]);
-//	nb.start = -1;
-//	free (str);
-}*/
 
 static void	ft_save_nb(int ac, char **av, t_nb nb)
 {
@@ -64,25 +47,21 @@ static void	ft_save_nb(int ac, char **av, t_nb nb)
 		nb.start = -1;
 		while (av[lenc][++lenv])
 		{
-			while (nb.start == -1 && av[lenc][lenv] == ' ')
+			while (nb.start == -1 && av[lenc][lenv] == ' ' && av[lenc][lenv + 1])
 				lenv++;
 			if (nb.start == -1 && av[lenc][lenv] != ' ' && av[lenc][lenv])
 				nb.start = lenv;
 			if (nb.start != -1 && (av[lenc][lenv] == ' ' || !av[lenc][lenv + 1]))
 			{
 				nb.len = lenv - nb.start;
-				if (nb.len == 0 || av[lenc][lenv + 1] == '\0')
+				if (av[lenc][lenv] != ' ' && av[lenc][lenv + 1] == '\0')
 					nb.len++;
-				if (av[lenc][lenv] == ' ' && av[lenc][lenv + 1] == '\0')
-					nb.len--;
 				str = ft_substr(av[lenc], nb.start, nb.len);
 				nb.n[++nb.arr] = ft_atoi(str);
 				printf("NUMBER= %d\n", nb.n[nb.arr]);
 				nb.start = -1;
 				free (str);
 			}
-			if (!av[lenc][lenv])
-				lenv--;
 		}
 	}
 }
