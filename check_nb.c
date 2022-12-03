@@ -22,6 +22,7 @@ void	ft_repnb(t_nb *nb)
 	i = -1;
 	while (++i < nb->numbers)
 	{
+		printf("NUMBER= %d\n", nb->n[i]);
 		j = i;
 		while (++j < nb->numbers)
 		{
@@ -53,7 +54,6 @@ void	ft_save_nb(int ac, char **av, t_nb *nb)
 					nb->len++;
 				nb->str = ft_substr(av[i], nb->start, nb->len);
 				nb->n[++nb->arr] = ft_atoi(nb->str);
-				printf("NUMBER= %d\n", nb->n[nb->arr]);
 				nb->start = -1;
 				free (nb->str);
 			}
