@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:42:32 by gfernand          #+#    #+#             */
-/*   Updated: 2022/12/01 17:00:33 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/12/05 14:40:54 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	main(int ac, char **av)
 	ft_save_nb(ac, av, nb);
 	ft_repnb(nb);
 	free (nb->n);
+	free (nb);
 	return (0);
 }
 

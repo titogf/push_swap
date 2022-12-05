@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:44:50 by gfernand          #+#    #+#             */
-/*   Updated: 2022/12/05 12:34:22 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/12/05 14:32:04 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include <stdlib.h>
 # include <limits.h>
 
+/*typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
+*/
 typedef struct s_nb
 {
 	int		arr;
