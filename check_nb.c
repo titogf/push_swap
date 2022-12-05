@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:42:40 by gfernand          #+#    #+#             */
-/*   Updated: 2022/12/01 18:19:12 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/12/05 12:57:08 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ void	ft_repnb(t_nb *nb)
 			if (nb->n[i] == nb->n[j])
 				ft_put_finish("Error\n");
 		}
+	}
+	i = -1;
+	while (++i < nb->numbers)
+	{
+		if ((i + 1) == nb->numbers)
+			exit (1);
+		if (!(nb->n[i] < nb->n[i + 1]))
+			return ;
 	}
 }
 
@@ -79,7 +87,7 @@ static void	ft_check_numbers(char **av, int i, int j)
 	}
 }
 
-int	ft_count(int ac, char **av, t_nb *nb)
+void	ft_count(int ac, char **av, t_nb *nb)
 {
 	int		i;
 	int		j;
@@ -98,5 +106,4 @@ int	ft_count(int ac, char **av, t_nb *nb)
 		}
 		nb->numbers++;
 	}
-	return (nb->numbers);
 }
