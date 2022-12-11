@@ -18,12 +18,12 @@
 # include <stdlib.h>
 # include <limits.h>
 
-/*typedef struct s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
-*/
+
 typedef struct s_nb
 {
 	int		arr;
@@ -33,6 +33,8 @@ typedef struct s_nb
 	int		numbers;
 	char	*str;
 }	t_nb;
+
+t_list	ft_create_list(t_nb *nb);
 
 void		ft_put_finish(char *c);
 

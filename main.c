@@ -35,6 +35,7 @@ int	main(int ac, char **av)
 	ft_save_nb(ac, av, nb);
 	ft_repnb(nb);
 	free (nb->n);
+	ft_create_list(nb);
 	free (nb);
 	return (0);
 }
