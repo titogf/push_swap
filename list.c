@@ -14,6 +14,6 @@ t_list	ft_create_list(t_nb *nb)
 		list->content = nb->n[i];
 		list = list->next;
 	}
-	list->content = NULL;
+	list->content = '\0';
 	return (*list);
 }
