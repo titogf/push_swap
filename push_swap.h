@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:44:50 by gfernand          #+#    #+#             */
-/*   Updated: 2022/12/13 17:54:13 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/12/29 17:28:05 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_nb
 	char	*str;
 }	t_nb;
 
-t_list	ft_create_list(t_nb *nb);
+t_lis		ft_create_list(t_nb *nb);
 
 void		ft_put_finish(char *c);
 
