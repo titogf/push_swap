@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/29 17:28:17 by gfernand          #+#    #+#             */
-/*   Updated: 2023/01/23 13:47:31 by gfernand         ###   ########.fr       */
+/*   Created: 2022/02/07 11:06:46 by gfernand          #+#    #+#             */
+/*   Updated: 2022/02/07 13:59:26 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_list	*ft_lstnew(int content);
-
-t_list	*ft_lstnew(int content)
+t_list	*ft_lstnew(void *content)
 {
 	t_list	*new;
 
@@ -24,22 +22,4 @@ t_list	*ft_lstnew(int content)
 	new->content = content;
 	new->next = NULL;
 	return (new);
-}
-
-t_list	ft_create_list(t_nb *nb)
-{
-	t_list	*list;
-	int		i;
-
-	list = ft_lstnew(nb->n[0]);
-	i = -1;
-	while (++i < nb->numbers && list != NULL)
-	{
-		list->content = nb->n[i];
-		if ((i + 1) >= nb->numbers)
-			list->next = ft_lstnew(nb->n[i]);
-		list = list->next;
-	}
-	list->content = '\0';
-	return (*list);
 }
