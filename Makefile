@@ -29,10 +29,12 @@ $(NAME): $(LIBFT) $(OBJS)
 
 clean:
 	rm -f $(OBJS)
+	@make clean -C $(LIBFT_PATH)
 	@echo $(RED)"OBJS were deleted"$(WHITE)
 
 fclean: clean
 	rm -f $(NAME)
+	@make fclean -C $(LIBFT_PATH)
 	@echo $(RED)"$(NAME) deleted"$(WHITE)
 
 re: fclean all
