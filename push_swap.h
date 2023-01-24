@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include "libft/libft.h"
 
 typedef struct s_list
 {
@@ -42,6 +43,4 @@ void		ft_repnb(t_nb *nb);
 void		ft_save_nb(int ac, char **av, t_nb *nb);
 void		ft_count(int ac, char **av, t_nb *nb);
 
-char		*ft_substr(char	*str, int start, int len);
-int			ft_atoi(char *str);
 #endif

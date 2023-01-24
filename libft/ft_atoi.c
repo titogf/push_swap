@@ -10,39 +10,55 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	maxmin(unsigned long long int result, int sig);
+#include "libft.h"
 
-int	ft_atoi(const char *str)
+static int	ft_max_int(char *str, int i, int nb, int sig);
+
+int	ft_atoi(char *str)
 {
-	unsigned long long int	result;
-	int						sig;
-	int						i;
+	int	i;
+	int	nb;
+	int	sig;
 
+	if (!str || !str[0])
+		return (-1);
 	i = 0;
+	nb = 0;
 	sig = 1;
-	result = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
-		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			sig = sig * (-1);
+			sig = -1;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[i])
 	{
-		result = (str[i] - 48) + (result * 10);
+		nb = nb * 10 + (str[i] - 48);
+		ft_max_int(str, i, nb, sig);
 		i++;
 	}
-	return (maxmin(result, sig));
+	return (nb * sig);
 }
 
-static int	maxmin(unsigned long long int result, int sig)
-{	
-	if (result > 9223372036854775807 && sig < 0)
-		return (0);
-	else if (result > 9223372036854775807 && sig > 0)
-		return (-1);
-	return (((int) result * sig));
+static int	ft_max_int(char *str, int i, int nb, int sig)
+{
+	int	m;
+
+	if (nb > 214748364)
+	{
+		if (str[i + 1])
+			ft_put_finish("Error\n");
+	}
+	if (nb == 214748364 && str[i + 1])
+	{
+		if (str[i + 2])
+			ft_put_finish("Error\n");
+		m = (str[++i] - 48);
+		if (m > 8)
+			ft_put_finish("Error\n");
+		else if (m == 8 && sig > 0)
+			ft_put_finish("Error\n");
+		nb = nb * 10 + (str[i] - 48);
+	}
+	return (nb);
 }

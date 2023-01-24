@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static size_t	ft_count(char const *s, char c);
+static size_t	ftcount(char const *s, char c);
 static char		**ft_site(char **str, char const *s, char c);
 static char		**ft_free(char **str);
 
@@ -21,7 +21,7 @@ char	**ft_split(char const *s, char c)
 	size_t	count;
 	char	**str;
 
-	count = ft_count(s, c);
+	count = ftcount(s, c);
 	str = (char **)malloc(sizeof(char *) *(count + 1));
 	if (!str)
 		return (NULL);
@@ -29,7 +29,7 @@ char	**ft_split(char const *s, char c)
 	return (str);
 }
 
-static	size_t	ft_count(char const *s, char c)
+static	size_t	ftcount(char const *s, char c)
 {
 	size_t	i;
 	size_t	count;
@@ -58,7 +58,7 @@ static	char	**ft_site(char **str, char const *s, char c)
 
 	i = 0;
 	found = 1;
-	count = ft_count(s, c);
+	count = ftcount(s, c);
 	while (found <= count)
 	{
 		if (s[i] != c)
@@ -66,7 +66,7 @@ static	char	**ft_site(char **str, char const *s, char c)
 			start = i++;
 			while (s[i] != c && s[i])
 				i++;
-			str[found - 1] = ft_substr(s, start, (i - 1) - start + 1);
+			str[found - 1] = ft_substr((char *)s, start, (i - 1) - start + 1);
 			if (str[found - 1] == NULL)
 				return (ft_free(str));
 			found++;
