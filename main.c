@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:42:32 by gfernand          #+#    #+#             */
-/*   Updated: 2023/01/25 08:03:51 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/01/25 11:49:32 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 {
 	t_nb	*nb;
 
-	//atexit(leaks);
+//	atexit(leaks);
 	if (ac < 2)
 		exit (1);
 	nb = malloc (sizeof (t_nb));
