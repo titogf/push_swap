@@ -18,6 +18,7 @@ all: $(NAME)
 
 $(LIBFT):
 	@make -C $(LIBFT_PATH)
+	@make bonus -C $(LIBFT_PATH)
 
 $(NAME): $(LIBFT) $(OBJS)
 	@echo $(GREEN)"Generating enforcible..."$(WHITE)

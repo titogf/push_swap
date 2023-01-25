@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:44:50 by gfernand          #+#    #+#             */
-/*   Updated: 2023/01/23 12:56:13 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/01/25 08:49:06 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 # include <limits.h>
 # include "libft/libft.h"
 
-typedef struct s_list
+typedef struct s_lst
 {
 	int				content;
-	struct s_list	*next;
-}	t_list;
+	struct s_lst	*next;
+}	t_lst;
 
 typedef struct s_nb
 {
@@ -35,7 +35,7 @@ typedef struct s_nb
 	char	*str;
 }	t_nb;
 
-t_list		ft_create_list(t_nb *nb);
+t_lst		ft_create_list(t_nb *nb);
 
 void		ft_put_finish(char *c);
 
