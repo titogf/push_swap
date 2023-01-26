@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:44:50 by gfernand          #+#    #+#             */
-/*   Updated: 2023/01/25 10:23:20 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/01/26 15:37:02 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ typedef struct s_lst
 typedef struct s_nb
 {
 	int		arr;
-	int		*n;
+	int		*num;
 	int		len;
 	int		start;
-	int		numbers;
+	int		arguments;
 	char	*str;
 }	t_nb;
 

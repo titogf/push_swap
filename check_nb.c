@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:42:40 by gfernand          #+#    #+#             */
-/*   Updated: 2023/01/25 11:32:11 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/01/26 15:37:01 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,22 @@ void	ft_repnb(t_nb *nb)
 	int	j;
 
 	i = -1;
-	while (++i < nb->numbers)
+	while (++i < nb->arguments)
 	{
-		printf("NUMBER= %d\n", nb->n[i]);
+		printf("NUMBER= %d\n", nb->num[i]);
 		j = i;
-		while (++j < nb->numbers)
+		while (++j < nb->arguments)
 		{
-			if (nb->n[i] == nb->n[j])
+			if (nb->num[i] == nb->num[j])
 				ft_put_finish("Error\n");
 		}
 	}
 	i = -1;
-	while (++i < nb->numbers)
+	while (++i < nb->arguments)
 	{
-		if ((i + 1) == nb->numbers)
+		if ((i + 1) == nb->arguments)
 			exit (1);
-		if (!(nb->n[i] < nb->n[i + 1]))
+		if (!(nb->num[i] < nb->num[i + 1]))
 			return ;
 	}
 }
@@ -61,7 +61,7 @@ void	ft_save_nb(int ac, char **av, t_nb *nb)
 				if (av[i][j] != ' ' && av[i][j + 1] == '\0')
 					nb->len++;
 				nb->str = ft_substr(av[i], nb->start, nb->len);
-				nb->n[++nb->arr] = ft_atoi(nb->str);
+				nb->num[++nb->arr] = ft_atoi(nb->str);
 				nb->start = -1;
 				free (nb->str);
 			}
@@ -99,11 +99,11 @@ void	ft_count(int ac, char **av, t_nb *nb)
 		while (av[i][++j])
 		{	
 			if (av[i][j] == ' ' && av[i][j + 1] != ' ' && av[i][j + 1] != '\0')
-				nb->numbers++;
+				nb->arguments++;
 			if (j == 0 && av[i][j] == ' ')
-				nb->numbers--;
+				nb->arguments--;
 			ft_check_numbers(av, i, j);
 		}
-		nb->numbers++;
+		nb->arguments++;
 	}
 }
