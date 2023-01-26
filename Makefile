@@ -41,4 +41,4 @@ fclean: clean
 re: fclean all
 
 n:
-	"norminette" $(SRC) push_swap.h
+	"norminette"

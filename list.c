@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:28:17 by gfernand          #+#    #+#             */
-/*   Updated: 2023/01/25 12:08:06 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/01/26 12:19:19 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 t_lst	ft_create_list(t_nb *nb)
 {
 	t_lst	*list;
+	void	*dir;
 	int		i;
 
 	list = (t_lst *)ft_lstnew(nb->n[0]);
+	dir = &list;
+	printf("DIR = %p\n", dir);
 	i = -1;
 	printf("LIST:\n");
 	while (++i < nb->numbers && list != NULL)
@@ -28,5 +31,7 @@ t_lst	ft_create_list(t_nb *nb)
 		printf(" %d\n", list->content);
 		list = list->next;
 	}
+	list = dir;
+	printf(" %d\n", list->content);
 	return (*list);
 }
