@@ -20,7 +20,6 @@ t_lst	ft_create_list(t_nb *nb)
 
 	list = (t_lst *)ft_lstnew(nb->n[0]);
 	dir = list;
-	printf("DIR = %p\n", dir);
 	i = -1;
 	while (++i < nb->numbers && list != NULL)
 	{
