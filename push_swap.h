@@ -35,7 +35,7 @@ typedef struct s_nb
 	char	*str;
 }	t_nb;
 
-t_lst		ft_create_list(t_nb *nb);
+void		ft_create_list(t_nb *nb);
 
 void		ft_put_finish(char *c);
 
