@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 12:47:49 by gfernand          #+#    #+#             */
-/*   Updated: 2023/02/06 13:00:34 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/02/06 15:30:22 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	ft_sort(t_nb *nb)
 	int j;
 
 	aux = malloc (sizeof (int) * nb->arguments);
-	printf("%d", nb->arguments);
+	if (!aux)
+		exit (2);
 	i = -1;
 	while (++i < nb->arguments)
 		aux[i] = nb->num[i];
@@ -30,7 +31,7 @@ void	ft_sort(t_nb *nb)
 	while (++i < nb->arguments)
 	{
 		j = i;
-		while (aux[++j])
+		while (j + 1 < nb->arguments && aux[++j])
 		{
 			if (aux[i] > aux[j])
 			{
@@ -40,6 +41,9 @@ void	ft_sort(t_nb *nb)
 			}
 		}
 	}
+	int x = 0;
+	while (x < nb->arguments)
+		printf("\t-> %d\n", aux[x++]);
 	ft_sortest(nb, aux);
 }
 
@@ -49,13 +53,16 @@ static void	ft_sortest(t_nb *nb, int *aux)
 	int	j;
 
 	i = -1;
-	while (aux[++i])
+	while ((i + 1 < nb->arguments) && nb->num[++i])
 	{
 		j = -1;
-		while (nb->num[++j])
+		while ((j + 1 < nb->arguments) && aux[++j])
 		{
-			if (nb->num[j] == aux[i])
-				nb->num[j] = i;
+			if (nb->num[i] == aux[j])
+			{
+				nb->num[i] = j;
+				j = nb->arguments - 2;
+			}
 		}
 	}
 	free (aux);
