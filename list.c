@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:28:17 by gfernand          #+#    #+#             */
-/*   Updated: 2023/02/06 11:08:49 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/02/06 13:00:32 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_create_list(t_nb *nb)
 	t_lst	*dir;
 	int		i;
 
+	ft_sort(nb);
 	list = (t_lst *)ft_lstnew(nb->num[0]);
 	dir = list;
 	i = -1;
@@ -32,18 +33,10 @@ void	ft_create_list(t_nb *nb)
 		printf("List-> %d\n", list->content);
 		list = list->next;
 	}
-	ft_move(list, dir);
+//	ft_move(list, dir);
 	ft_free_list(list, dir);
 }
 
-void	ft_move(t_lst *list, t_lst *dir)
-{
-	list = dir;
-	list = list->next;
-	list = list->next;
-	list = dir;
-	printf("esta es el primer numero %d\n", list->content);
-}
 
 void	ft_free_list(t_lst *list, t_lst *dir)
 {
@@ -57,3 +50,12 @@ void	ft_free_list(t_lst *list, t_lst *dir)
 		list = aux;
 	}
 }
+
+/*void	ft_move(t_lst *list, t_lst *dir)
+{
+	list = dir;
+	list = list->next;
+	list = list->next;
+	list = dir;
+	printf("esta es el primer numero %d\n", list->content);
+}*/

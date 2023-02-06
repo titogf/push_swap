@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:44:50 by gfernand          #+#    #+#             */
-/*   Updated: 2023/02/06 11:19:05 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/02/06 12:57:37 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,7 @@ void		ft_put_finish(char *c);
 
 void		ft_check_nb(int ac, char **av, t_nb *nb);
 void		ft_count(int ac, char **av, t_nb *nb);
+
+void	ft_sort(t_nb *nb);
 
 #endif
