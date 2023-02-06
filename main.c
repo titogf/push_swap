@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:42:32 by gfernand          #+#    #+#             */
-/*   Updated: 2023/02/06 11:11:42 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/02/06 11:22:01 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int ac, char **av)
 	nb->num = malloc (sizeof (int) * nb->arguments);
 	if (!nb->num)
 		return (0);
-	ft_save_nb(ac, av, nb);
+	ft_check_nb(ac, av, nb);
 	ft_create_list(nb);
 	free (nb->num);
 	free (nb);

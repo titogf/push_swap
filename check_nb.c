@@ -6,16 +6,16 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:42:40 by gfernand          #+#    #+#             */
-/*   Updated: 2023/02/06 11:01:13 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/02/06 11:23:25 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_check_numbers(char **av, int i, int j);
-static  void	ft_repnb(t_nb *nb);
+static void	ft_argc(char **av, int i, int j);
+static void	ft_repnb(t_nb *nb);
 
-static  void	ft_repnb(t_nb *nb)
+static void	ft_repnb(t_nb *nb)
 {
 	int	i;
 	int	j;
@@ -41,7 +41,7 @@ static  void	ft_repnb(t_nb *nb)
 	}
 }
 
-void	ft_save_nb(int ac, char **av, t_nb *nb)
+void	ft_check_nb(int ac, char **av, t_nb *nb)
 {
 	int	i;
 	int	j;
@@ -70,7 +70,7 @@ void	ft_save_nb(int ac, char **av, t_nb *nb)
 	ft_repnb(nb);
 }
 
-static void	ft_check_numbers(char **av, int i, int j)
+static void	ft_argc(char **av, int i, int j)
 {
 	if (av[i][j] < '0' || av[i][j] != ' ')
 	{
@@ -103,7 +103,7 @@ void	ft_count(int ac, char **av, t_nb *nb)
 				nb->arguments++;
 			if (j == 0 && av[i][j] == ' ')
 				nb->arguments--;
-			ft_check_numbers(av, i, j);
+			ft_argc(av, i, j);
 		}
 		nb->arguments++;
 	}

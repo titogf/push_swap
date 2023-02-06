@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:44:50 by gfernand          #+#    #+#             */
-/*   Updated: 2023/02/06 11:00:48 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/02/06 11:19:05 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void		ft_create_list(t_nb *nb);
 
 void		ft_put_finish(char *c);
 
-void		ft_save_nb(int ac, char **av, t_nb *nb);
+void		ft_check_nb(int ac, char **av, t_nb *nb);
 void		ft_count(int ac, char **av, t_nb *nb);
 
 #endif
