@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 12:19:20 by gfernand          #+#    #+#             */
-/*   Updated: 2023/01/25 07:27:59 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/02/06 10:58:58 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	ft_atoi(char *str)
 		ft_max_int(str, i, nb, sig);
 		i++;
 	}
+	free (str);
 	return (nb * sig);
 }
 

@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:42:32 by gfernand          #+#    #+#             */
-/*   Updated: 2023/01/26 15:37:47 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/02/06 11:00:05 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	main(int ac, char **av)
 	if (!nb->num)
 		return (0);
 	ft_save_nb(ac, av, nb);
-	ft_repnb(nb);
 	ft_create_list(nb);
 	free (nb->num);
 	free (nb);
