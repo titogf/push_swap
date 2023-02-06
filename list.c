@@ -12,7 +12,9 @@
 
 #include "push_swap.h"
 
-t_lst	ft_create_list(t_nb *nb)
+void	ft_move(t_lst *list, t_lst *dir);
+
+void	ft_create_list(t_nb *nb)
 {
 	t_lst	*list;
 	t_lst	*dir;
@@ -29,5 +31,14 @@ t_lst	ft_create_list(t_nb *nb)
 		printf("List-> %d\n", list->content);
 		list = list->next;
 	}
-	return (*list);
+	ft_move(list, dir);
+}
+
+void	ft_move(t_lst *list, t_lst *dir)
+{
+	list = dir;
+	list = list->next;
+	list = list->next;
+	list = dir;
+	printf("esta es el primer numero %d\n", list->content);
 }
