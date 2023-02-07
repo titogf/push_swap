@@ -14,11 +14,11 @@
 
 static void	ft_positive(t_nb *nb, int *aux);
 
-void ft_sort(t_nb *nb)
+void	ft_sort(t_nb *nb)
 {
 	int	*aux;
 	int	middle;
-	int swap;
+	int	swap;
 	int	i;
 
 	aux = malloc (sizeof (int) * nb->arguments);
@@ -32,11 +32,11 @@ void ft_sort(t_nb *nb)
 	while (i + 1 < nb->arguments && aux[++i])
 	{
 		if (aux[i] > aux[i + 1])
-			{
-				swap = aux[i];
-				aux[i] = aux[i + 1];
-				aux[++i] = swap;
-			}
+		{
+			swap = aux[i];
+			aux[i] = aux[i + 1];
+			aux[++i] = swap;
+		}
 	}
 }
 /*

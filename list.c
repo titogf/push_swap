@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-void	ft_move(t_lst *list, t_lst *dir);
 void	ft_free_list(t_lst *list, t_lst *dir);
 
 void	ft_create_list(t_nb *nb)
@@ -33,10 +32,8 @@ void	ft_create_list(t_nb *nb)
 		printf("List-> %d\n", list->content);
 		list = list->next;
 	}
-//	ft_move(list, dir);
 	ft_free_list(list, dir);
 }
-
 
 void	ft_free_list(t_lst *list, t_lst *dir)
 {
@@ -50,12 +47,3 @@ void	ft_free_list(t_lst *list, t_lst *dir)
 		list = aux;
 	}
 }
-
-/*void	ft_move(t_lst *list, t_lst *dir)
-{
-	list = dir;
-	list = list->next;
-	list = list->next;
-	list = dir;
-	printf("esta es el primer numero %d\n", list->content);
-}*/
