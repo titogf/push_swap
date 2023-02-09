@@ -97,15 +97,12 @@ static void	ft_positive(t_nb *nb, int *aux)
 	i = -1;
 	while ((i + 1 < nb->arguments) && (nb->num[++i] || nb->num[i] == '0'))
 	{
-		printf("arguments ----->%d\n", i);
-		printf("numbers ----->%d\n", nb->num[i]);
 		j = -1;
 		while ((j + 1 < nb->arguments) && aux[++j])
 		{
 			if (nb->num[i] == aux[j])
 			{
 				nb->num[i] = j;
-				printf("%d", nb->num[i]);
 				j = nb->arguments - 2;
 			}
 		}
