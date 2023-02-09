@@ -25,7 +25,7 @@ typedef struct	s_sort
 	int	r_length;
 	int	*temp_l;
 	int	*temp_r;
-}	t_sort
+}	t_sort;
 
 typedef struct s_lst
 {
