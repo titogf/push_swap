@@ -12,13 +12,14 @@
 
 #include "push_swap.h"
 
-static void	ft_positive(t_nb *nb, int *aux);
+//static void	ft_positive(t_nb *nb, int *aux);
+void	ft_merge_recursion(int *n, int l, int r);
 
 void	ft_sort(t_nb *nb)
 {
 	int	*aux;
-	int	middle;
-	int	swap;
+	int	r;
+	int	l;
 	int	i;
 
 	aux = malloc (sizeof (int) * nb->arguments);
@@ -27,53 +28,28 @@ void	ft_sort(t_nb *nb)
 	i = -1;
 	while (++i < nb->arguments)
 		aux[i] = nb->num[i];
-	middle = nb->atguments / 2;
-	i = -1;
-	while (i + 1 < nb->arguments && aux[++i])
-	{
-		if (aux[i] > aux[i + 1])
-		{
-			swap = aux[i];
-			aux[i] = aux[i + 1];
-			aux[++i] = swap;
-		}
-	}
+	l = 0;
+	r = nb->arguments - 1;
+	ft_merge_recursion(aux, l, r);
 }
-/*
-void	ft_sort(t_nb *nb)
+
+void	ft_merge_recursion(int *n, int l, int r)
 {
-	int	*aux;
-	int	swap;
-	int i;
-	int j;
+	int	m;
+	int	i;
 
-	aux = malloc (sizeof (int) * nb->arguments);
-	if (!aux)
-		exit (2);
-	i = -1;
-	while (++i < nb->arguments)
-		aux[i] = nb->num[i];
-	i = -1;
-	while (++i < nb->arguments)
+	if (l < r)
 	{
-		j = i;
-		while (j + 1 < nb->arguments && aux[++j])
-		{
-			if (aux[i] > aux[j])
-			{
-				swap = aux[i];
-				aux[i] = aux[j];
-				aux[j] = swap;
-			}
-		}
+		m = l + (r - l) / 2;
+		ft_merge_recursion(n, l, m);
+		ft_merge_recursion(n, m + 1, r);
 	}
-	int x = 0;
-	while (x < nb->arguments)
-		printf("\t-> %d\n", aux[x++]);
-	ft_positive(nb, aux);
-}*/
+	i = 0;
+	while (n[i++])
+		printf("Esto es la n en el sort %d\n", n[i]);
+}
 
-static void	ft_positive(t_nb *nb, int *aux)
+/*static void	ft_positive(t_nb *nb, int *aux)
 {
 	int	i;
 	int	j;
@@ -92,4 +68,4 @@ static void	ft_positive(t_nb *nb, int *aux)
 		}
 	}
 	free (aux);
-}
+}*/
