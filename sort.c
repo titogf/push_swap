@@ -95,10 +95,10 @@ static void	ft_positive(t_nb *nb, int *aux)
 	int	j;
 
 	i = -1;
-	while ((i + 1 < nb->arguments) && (nb->num[++i] || nb->num[i] == '0'))
+	while (++i < nb->arguments)
 	{
 		j = -1;
-		while ((j + 1 < nb->arguments) && aux[++j])
+		while (++j < nb->arguments)
 		{
 			if (nb->num[i] == aux[j])
 			{
