@@ -19,10 +19,10 @@
 # include <limits.h>
 # include "libft/libft.h"
 
-typedef struct	s_sort
+typedef struct s_sort
 {
-	int	l_length;
-	int	r_length;
+	int	l_len;
+	int	r_len;
 	int	*temp_l;
 	int	*temp_r;
 }	t_sort;

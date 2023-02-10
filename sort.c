@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-
 static void	ft_positive(t_nb *nb, int *aux);
 static void	ft_merge_recursion(int *n, int l, int r);
-static void	ft_sort_array(int *n, int l, int m, int r);
+static void	ft_merge_sort(int *n, int l, int m, int r);
+static void	ft_sort_array(t_sort *sort, int *n, int l, int r);
 
 void	ft_sort(t_nb *nb)
 {
@@ -45,48 +45,53 @@ static void	ft_merge_recursion(int *n, int l, int r)
 		m = l + (r - l) / 2;
 		ft_merge_recursion(n, l, m);
 		ft_merge_recursion(n, m + 1, r);
-		ft_sort_array(n, l, m, r);
+		ft_merge_sort(n, l, m, r);
 	}
 }
 
-static void	ft_sort_array(int *n, int l, int m, int r)
+static void	ft_merge_sort(int *n, int l, int m, int r)
 {
-	int	l_len;
-	int	r_len;
-	int	*temp_l;
-	int	*temp_r;
+	t_sort	*sort;
+	int		i;
+
+	sort = malloc (sizeof (t_sort));
+	sort->l_len = m - l + 1;
+	sort->r_len = r - m;
+	sort->temp_l = malloc (sizeof (int) * sort->l_len);
+	sort->temp_r = malloc (sizeof (int) * sort->r_len);
+	i = -1;
+	while (++i < sort->l_len)
+		sort->temp_l[i] = n[l + i];
+	i = -1;
+	while (++i < sort->r_len)
+		sort->temp_r[i] = n[m + 1 + i];
+	ft_sort_array(sort, n, l, r);
+	free(sort->temp_l);
+	free(sort->temp_r);
+}
+
+static void	ft_sort_array(t_sort *sort, int *n, int l, int r)
+{
 	int	i;
 	int	j;
 	int	k;
 
-	l_len = m - l + 1;
-	r_len = r - m;
-	temp_l = malloc (sizeof (int) * l_len);
-	temp_r = malloc (sizeof (int) * r_len);
-	i = -1;
-	while (++i < l_len)
-		temp_l[i] = n[l + i];
-	i = -1;
-	while (++i < r_len)
-		temp_r[i] = n[m + 1 + i];
 	i = 0;
 	j = 0;
 	k = l - 1;
 	while (++k <= r)
 	{
-		if ((i < l_len) && (j >= r_len || temp_l[i] <= temp_r[j]))
+		if ((i < sort->l_len) && (j >= sort->r_len || sort->temp_l[i] <= sort->temp_r[j]))
 		{
-			n[k] = temp_l[i];
+			n[k] = sort->temp_l[i];
 			i++;
 		}
 		else
 		{
-			n[k] = temp_r[j];
+			n[k] = sort->temp_r[j];
 			j++;
 		}
 	}
-	free(temp_l);
-	free(temp_r);
 }
 
 static void	ft_positive(t_nb *nb, int *aux)
