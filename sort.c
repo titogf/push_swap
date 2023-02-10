@@ -81,7 +81,8 @@ static void	ft_sort_array(t_sort *sort, int *n, int l, int r)
 	k = l - 1;
 	while (++k <= r)
 	{
-		if ((i < sort->l_len) && (j >= sort->r_len || sort->temp_l[i] <= sort->temp_r[j]))
+		if ((i < sort->l_len)
+			&& (j >= sort->r_len || sort->temp_l[i] <= sort->temp_r[j]))
 		{
 			n[k] = sort->temp_l[i];
 			i++;
