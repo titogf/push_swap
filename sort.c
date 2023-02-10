@@ -68,6 +68,7 @@ static void	ft_merge_sort(int *n, int l, int m, int r)
 	ft_sort_array(sort, n, l, r);
 	free(sort->temp_l);
 	free(sort->temp_r);
+	free(sort);
 }
 
 static void	ft_sort_array(t_sort *sort, int *n, int l, int r)
