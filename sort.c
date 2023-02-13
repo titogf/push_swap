@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 12:47:49 by gfernand          #+#    #+#             */
-/*   Updated: 2023/02/07 16:26:20 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/02/13 12:53:45 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ void	ft_sort(t_nb *nb)
 	while (++i < nb->arguments)
 		aux[i] = nb->num[i];
 	ft_merge_recursion(aux, 0, nb->arguments - 1);
-	i = -1;
-	while (++i < nb->arguments)
-		printf("AUX\t%d\n", aux[i]);
 	ft_positive(nb, aux);
 	free(aux);
 }

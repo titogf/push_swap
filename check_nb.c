@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:42:40 by gfernand          #+#    #+#             */
-/*   Updated: 2023/02/06 12:58:46 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/02/13 12:53:05 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ static void	ft_repnb(t_nb *nb)
 	i = -1;
 	while (++i < nb->arguments)
 	{
-		printf("NUMBER= %d\n", nb->num[i]);
 		j = i;
 		while (++j < nb->arguments)
 		{
