@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:28:17 by gfernand          #+#    #+#             */
-/*   Updated: 2023/02/14 15:43:27 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:08:11 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,10 @@ static void	ft_free_list(t_lst *list)
 {
 	t_lst	*aux;
 
-	while (list)
-	{
-		aux = list->next;
-		free (list);
-		list = aux;
-	}
+	aux = list->next;
+	free (list);
+	list = aux;
+	free (list);
 }
 
 static void	ft_free_stack(t_stack *stack)
