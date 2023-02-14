@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:42:32 by gfernand          #+#    #+#             */
-/*   Updated: 2023/02/06 11:53:39 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:29:24 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 static void	ft_initialise(t_nb *nb);
 
-/*static void	leaks()
+static void	leaks()
 {
 	system("leaks push_swap");
-}*/
+}
 
 int	main(int ac, char **av)
 {
 	t_nb	*nb;
 
-//	atexit(leaks);
+	atexit(leaks);
 	if (ac < 2)
 		exit (1);
 	nb = malloc (sizeof (t_nb));
