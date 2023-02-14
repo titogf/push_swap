@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:28:17 by gfernand          #+#    #+#             */
-/*   Updated: 2023/02/14 16:08:11 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:23:55 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_create_list(t_nb *nb)
 	stack->a = (t_lst *)ft_lstnew(nb->num[0]);
 	stack->elem_a = stack->a;
 	i = -1;
-	while (++i < nb->arguments && stack != NULL)
+	while (++i < nb->arguments && stack->a != NULL)
 	{
 		stack->a->content = nb->num[i];
 		if (i < nb->arguments)
@@ -35,6 +35,7 @@ void	ft_create_list(t_nb *nb)
 		printf("List-> %d\n", stack->a->content);
 		stack->a = stack->a->next;
 	}
+	ft_movements(stack, nb);
 	ft_free_list(list);
 	ft_free_stack(stack);
 }
