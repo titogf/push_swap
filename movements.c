@@ -42,13 +42,18 @@ static void	ft_sa(t_stack *stack)
 	write(1, "sa\n", 3);
 }
 
+static void	ft_ra(t_stack *stack)
+{
+	stack->a = stack->elem_a;
+}
+
 static void	ft_sort_3(t_stack *stack)
 {
 	int	aux1;
 	int	aux2;
 
 	stack->a = stack->elem_a;
-	if (stack->a->content == '0')
+	if (stack->a->content == 0)
 	{
 		ft_sa(stack);
 		ft_ra(stack);
@@ -56,5 +61,7 @@ static void	ft_sort_3(t_stack *stack)
 	}
 	aux1 = stack->a->content;
 	stack->a = stack->a->next;
-	aux2 = stack
+	aux2 = stack->a->content;
+	if (aux1 > aux2)
+		ft_sa(stack);
 }
