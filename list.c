@@ -36,8 +36,8 @@ void	ft_create_list(t_nb *nb)
 		stack->a = stack->a->next;
 	}
 	ft_movements(stack, nb);
-	ft_free_list(list);
 	ft_free_stack(stack);
+	ft_free_list(list);
 }
 
 static void	ft_free_list(t_lst *list)
