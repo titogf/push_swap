@@ -17,7 +17,7 @@ static void	ft_merge_recursion(int *n, int l, int r);
 static void	ft_merge_sort(int *n, int l, int m, int r);
 static void	ft_sort_array(t_sort *sort, int *n, int l, int r);
 
-void	ft_sort(t_nb *nb)
+void	ft_parse(t_nb *nb)
 {
 	int	*aux;
 	int	i;

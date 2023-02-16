@@ -21,7 +21,7 @@ void	ft_create_list(t_nb *nb)
 	t_stack	*stack;
 	int		i;
 
-	ft_sort(nb);
+	ft_parse(nb);
 	list = (t_lst *)ft_lstnew(nb->num[0]);
 	stack = malloc (sizeof (t_stack));
 	stack->a = (t_lst *)ft_lstnew(nb->num[0]);

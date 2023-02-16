@@ -58,7 +58,7 @@ void		ft_put_finish(char *c);
 void		ft_check_nb(int ac, char **av, t_nb *nb);
 void		ft_count(int ac, char **av, t_nb *nb);
 
-void		ft_sort(t_nb *nb);
+void		ft_parse(t_nb *nb);
 
 void		ft_movements(t_stack *stack, t_nb *nb);
 
