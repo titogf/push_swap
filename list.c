@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:28:17 by gfernand          #+#    #+#             */
-/*   Updated: 2023/02/20 17:22:39 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/02/20 18:24:48 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,5 @@ static void	ft_free_stack(t_stack *stack)
 		free (stack->a);
 		stack->a = aux;
 	}
+	free (stack);
 }
