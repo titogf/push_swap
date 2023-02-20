@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:44:50 by gfernand          #+#    #+#             */
-/*   Updated: 2023/02/14 16:25:08 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/02/20 15:10:06 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ typedef struct s_stack
 {
 	t_lst	*a;
 	t_lst	*b;
-	t_lst	*elem_a;
-	t_lst	*elem_b;
+	t_lst	*first_node_a;
+	t_lst	*first_node_b;
 }	t_stack;
 
 typedef struct s_sort
