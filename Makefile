@@ -12,7 +12,7 @@ OBJS = $(SRC:.c=.o)
 LIBFT_PATH = libft/
 LIBFT = libft/libft.a
 CC = gcc
-FLAGS = -Wall -Werror -Wextra -fsanitize=address
+FLAGS = -Wall -Werror -Wextra #-fsanitize=address
 
 all: $(NAME)
 

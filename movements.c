@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:22:12 by gfernand          #+#    #+#             */
-/*   Updated: 2023/02/20 16:02:26 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/02/20 17:26:14 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ static void	ft_sa(t_stack *stack)
 	stack->a = stack->first_node_a;
 	stack->a->content = aux2;
 	write(1, "sa\n", 3);
-/*	while (stack->a)
+	while (stack->a)
 	{
 		printf("SA--> %d\n", stack->a->content);
 		stack->a = stack->a->next;
-	}*/
+	}
 }
 
 static void	ft_ra(t_stack *stack)
@@ -62,11 +62,11 @@ static void	ft_ra(t_stack *stack)
 	stack->a->next = NULL;
 	write(1, "ra\n", 3);
 	stack->a = stack->first_node_a;
-	/*while (stack->a)
+	while (stack->a)
 	{
 		printf("RA----> %d\n", stack->a->content);
 		stack->a = stack->a->next;
-	}*/
+	}
 }
 
 static void	ft_sort_3(t_stack *stack)
