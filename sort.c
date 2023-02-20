@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:42:34 by gfernand          #+#    #+#             */
-/*   Updated: 2023/02/20 17:43:09 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/02/20 18:48:21 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,27 @@ void	ft_ra(t_stack *stack)
 	while (stack->a)
 	{
 		printf("RA----> %d\n", stack->a->content);
+		stack->a = stack->a->next;
+	}
+}
+
+void	ft_rra(t_stack *stack)
+{
+	t_lst	*aux;
+
+	stack->a = stack->first_node_a;
+	while (stack->a->next)
+	{
+		aux = stack->a;
+		stack->a = stack->a->next;
+	}
+	aux->next = NULL;
+	stack->a->next = stack->first_node_a;
+	stack->first_node_a = stack->a;
+	write(1, "rra\n", 4);
+	while (stack->a)
+	{
+		printf("RRA----> %d\n", stack->a->content);
 		stack->a = stack->a->next;
 	}
 }

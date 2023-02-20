@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:22:12 by gfernand          #+#    #+#             */
-/*   Updated: 2023/02/20 17:45:10 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/02/20 18:48:19 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ static void	ft_sort_3(t_stack *stack)
 	stack->a = stack->first_node_a;
 	if (stack->a->content == 0)
 	{
+		ft_rra(stack);
 		ft_sa(stack);
-		ft_ra(stack);
 		return ;
 	}
 	aux1 = stack->a->content;
