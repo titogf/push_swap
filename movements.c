@@ -12,25 +12,24 @@
 
 #include "push_swap.h"
 
-static void	ft_sort_3(t_stack *stack);
+static void	ft_short_mv(t_stack *stack);
+static void	ft_arg_3(t_stack *stack);
 
 void	ft_movements(t_stack *stack, t_nb *nb)
 {
 	if (nb->arguments < 4)
 	{
-		if (nb->arguments == 2)
-			ft_sa(stack);
-		else
-			ft_sort_3(stack);
+		ft_short_mv(stack);
+		return ;
 	}
 }
 
-static void	ft_sort_3(t_stack *stack)
+static void	ft_short_mv(t_stack *stack)
 {
 	t_lst	*list;
 	int		aux1;
 	int		aux2;
-	int		n;
+	int		order;
 
 	list = stack->first_node_a;
 	aux1 = list->content;
@@ -39,24 +38,28 @@ static void	ft_sort_3(t_stack *stack)
 	if (aux1 > aux2)
 	{
 		ft_sa(stack);
-		n = ft_check_order(stack);
-		if (n == 1)
+		order = ft_check_order(stack);
+		if (order == 1)
 			return ;
 		ft_rra(stack);
-		n = ft_check_order(stack);
-		if (n == 1)
+		order = ft_check_order(stack);
+		if (order == 1)
 			return ;
 		ft_sa(stack);
-		
 	}
 	else
-	{
-		ft_rra(stack);
-		n = ft_check_order(stack);
-		if (n == 1)
-			return ;
-		ft_sa(stack);
-	}
+		ft_arg_3(stack);
+}
+
+static void	ft_arg_3(t_stack *stack)
+{
+	int	order;
+
+	ft_rra(stack);
+	order = ft_check_order(stack);
+	if (order == 1)
+		return ;
+	ft_sa(stack);
 }
 
 int	ft_check_order(t_stack *stack)
