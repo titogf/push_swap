@@ -33,12 +33,6 @@ static void	ft_sort_3(t_stack *stack)
 	int		n;
 
 	list = stack->first_node_a;
-	if (list->content == 0)
-	{
-		ft_rra(stack);
-		ft_sa(stack);
-		return ;
-	}
 	aux1 = list->content;
 	list = list->next;
 	aux2 = list->content;
