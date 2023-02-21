@@ -61,21 +61,3 @@ static void	ft_arg_3(t_stack *stack)
 		return ;
 	ft_sa(stack);
 }
-
-int	ft_check_order(t_stack *stack)
-{
-	t_lst	*aux;
-	int		n1;
-	int		n2;
-
-	aux = stack->first_node_a;
-	while (aux->next)
-	{
-		n1 = aux->content;
-		aux = aux->next;
-		n2 = aux->content;
-		if (n1 > n2)
-			return (-1);
-	}
-	return (1);
-}
