@@ -97,17 +97,19 @@ static void	ft_positive(t_nb *nb, int *aux)
 {
 	int	i;
 	int	j;
+	int	c;
 
 	i = -1;
 	while (++i < nb->arguments)
 	{
 		j = -1;
-		while (++j < nb->arguments)
+		c = 0;
+		while (++j < nb->arguments && c == 0)
 		{
 			if (nb->num[i] == aux[j])
 			{
 				nb->num[i] = j;
-				j = nb->arguments - 2;
+				c = -1;
 			}
 		}
 	}

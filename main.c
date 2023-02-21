@@ -14,16 +14,16 @@
 
 static void	ft_initialise(t_nb *nb);
 
-static void	leaks()
+/*static void	leaks()
 {
 	system("leaks push_swap");
-}
+}*/
 
 int	main(int ac, char **av)
 {
 	t_nb	*nb;
 
-	atexit(leaks);
+//	atexit(leaks);
 	if (ac < 2)
 		exit (1);
 	nb = malloc (sizeof (t_nb));

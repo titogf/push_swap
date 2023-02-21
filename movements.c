@@ -52,7 +52,7 @@ static void	ft_sort_3(t_stack *stack)
 		n = ft_check_order(stack);
 		if (n == 1)
 			return ;
-		ft_ra(stack);
+		ft_sa(stack);
 		
 	}
 	else
