@@ -65,4 +65,6 @@ void		ft_sa(t_stack *stack);
 void		ft_ra(t_stack *stack);
 void		ft_rra(t_stack *stack);
 
+int		ft_check_order(t_stack *stack);
+
 #endif
