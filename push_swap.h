@@ -61,6 +61,8 @@ void		ft_count(int ac, char **av, t_nb *nb);
 void		ft_parse(t_nb *nb);
 
 void		ft_movements(t_stack *stack, t_nb *nb);
+void		ft_short_mv(t_stack *stack);
+
 void		ft_sa(t_stack *stack);
 void		ft_ra(t_stack *stack);
 void		ft_rra(t_stack *stack);
