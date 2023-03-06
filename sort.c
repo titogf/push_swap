@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:42:34 by gfernand          #+#    #+#             */
-/*   Updated: 2023/03/06 18:01:54 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/06 19:45:25 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,34 @@ void	ft_sa(t_stack *stack, int n)
 		list = list->next;
 	}
 }
-/*
+
 void	ft_pa(t_stack *stack)
 {
-	t_stack	*aux;
+	t_lst	*aux;
+	t_lst	*list_b;
 
 	if (!stack->b)
 		return ;
-	aux = stack->fitst_node_b;
-	stack->b = stack->fist_node_b;
-	stack->first_node_b = stack->b->next;
-	aux->next = stack->first_node_a;
-	stack->first_node_a = aux;
+	aux = stack->b;
+	list_b = stack->b;
+	stack->b = list_b->next;
+	aux->next = stack->a;
+	stack->a = aux;
 	write(1, "pa\n", 3);
+	list_b = stack->a;
+	while (list_b)
+	{
+		printf("STACK_A----> %d\n", list_b->content);
+		list_b = list_b->next;
+	}
+/*	list_b = stack->b;
+	while (list_b && list_b->content)
+	{
+		printf("B_STACK----> %d\n", list_b->content);
+		list_b = list_b->next;
+	}*/
 }
-*/
+
 void	ft_ra(t_stack *stack, int n)
 {
 	t_lst	*swap_node;

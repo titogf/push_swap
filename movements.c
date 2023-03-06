@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:22:12 by gfernand          #+#    #+#             */
-/*   Updated: 2023/03/06 18:08:36 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/06 19:45:23 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ void	ft_movements(t_stack *stack, t_nb *nb)
 {
 	if (nb->arguments < 4)
 	{
-		ft_short_mv(stack);
+		if (nb->arguments == 2)
+			ft_sa(stack, 1);
+		else
+			ft_short_mv(stack);
 		return ;
 	}
 }

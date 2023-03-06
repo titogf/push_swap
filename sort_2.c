@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:05:16 by gfernand          #+#    #+#             */
-/*   Updated: 2023/03/06 18:04:08 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/06 19:44:50 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,36 @@ void	ft_sb(t_stack *stack, int n)
 		list = list->next;
 	}
 }
-/*
+
 void	ft_pb(t_stack *stack)
 {
-	t_stack	*aux;
+	t_lst	*aux;
+	t_lst	*list_a;
 
-	if (!stack->b)
+	if (!stack->a)
 		return ;
-	aux = stack->fitst_node_b;
-	stack->b = stack->fist_node_b;
-	stack->first_node_b = stack->b->next;
-	aux->next = stack->first_node_a;
-	stack->first_node_a = aux;
+	if (!stack->b)
+		stack->b = NULL;
+	aux = stack->a;
+	list_a = stack->a;
+	stack->a = list_a->next;
+	aux->next = stack->b;
+	stack->b = aux;
 	write(1, "pb\n", 3);
+	list_a = stack->a;
+	while (list_a)
+	{
+		printf("STACK_A----> %d\n", list_a->content);
+		list_a = list_a->next;
+	}
+/*	list_a = stack->b;
+	while (!list_a)
+	{
+		printf("B_STACK----> %d\n", list_a->content);
+		list_a = list_a->next;
+	}*/
 }
-*/
+
 void	ft_rb(t_stack *stack, int n)
 {
 	t_lst	*swap_node;
