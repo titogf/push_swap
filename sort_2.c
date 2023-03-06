@@ -6,13 +6,13 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:05:16 by gfernand          #+#    #+#             */
-/*   Updated: 2023/02/20 19:09:18 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:01:31 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sb(t_stack *stack)
+void	ft_sb(t_stack *stack, int n)
 {
 	int	aux1;
 	int	aux2;
@@ -24,7 +24,8 @@ void	ft_sb(t_stack *stack)
 	stack->b->content = aux1;
 	stack->b = stack->first_node_b;
 	stack->b->content = aux2;
-	write(1, "sb\n", 3);
+	if (n == 1)
+		write(1, "sb\n", 3);
 	while (stack->b)
 	{
 		printf("SB--> %d\n", stack->b->content);
@@ -32,7 +33,7 @@ void	ft_sb(t_stack *stack)
 	}
 }
 
-void	ft_rb(t_stack *stack)
+void	ft_rb(t_stack *stack, int n)
 {
 	t_lst	*swap_node;
 
@@ -45,7 +46,8 @@ void	ft_rb(t_stack *stack)
 	stack->b->next = swap_node;
 	stack->b = stack->b->next;
 	stack->b->next = NULL;
-	write(1, "rb\n", 3);
+	if (n == 1)
+		write(1, "rb\n", 3);
 	stack->a = stack->first_node_b;
 	while (stack->b)
 	{
@@ -54,7 +56,7 @@ void	ft_rb(t_stack *stack)
 	}
 }
 
-void	ft_rrb(t_stack *stack)
+void	ft_rrb(t_stack *stack, int n)
 {
 	t_lst	*aux;
 
@@ -67,7 +69,8 @@ void	ft_rrb(t_stack *stack)
 	aux->next = NULL;
 	stack->b->next = stack->first_node_b;
 	stack->first_node_b = stack->b;
-	write(1, "rrb\n", 4);
+	if (n == 1)
+		write(1, "rrb\n", 4);
 	while (stack->b)
 	{
 		printf("RRB----> %d\n", stack->b->content);

@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:44:50 by gfernand          #+#    #+#             */
-/*   Updated: 2023/02/20 18:44:23 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:01:51 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,13 @@ void		ft_parse(t_nb *nb);
 void		ft_movements(t_stack *stack, t_nb *nb);
 void		ft_short_mv(t_stack *stack);
 
-void		ft_sa(t_stack *stack);
-void		ft_ra(t_stack *stack);
-void		ft_rra(t_stack *stack);
+void		ft_sa(t_stack *stack, int n);
+void		ft_ra(t_stack *stack, int n);
+void		ft_rra(t_stack *stack, int n);
+
+void		ft_sb(t_stack *stack, int n);
+void		ft_rb(t_stack *stack, int n);
+void		ft_rrb(t_stack *stack, int n);
 
 int			ft_check_order(t_stack *stack);
 

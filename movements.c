@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:22:12 by gfernand          #+#    #+#             */
-/*   Updated: 2023/02/20 18:48:19 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/06 15:55:26 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,29 +49,29 @@ static void	ft_bigger(t_stack *stack, int aux1, int aux2, int aux3)
 
 	if (aux3 > aux2 && aux3 < aux1)
 	{
-		ft_ra(stack);
+		ft_ra(stack, 1);
 		order = ft_check_order(stack);
 		if (order == 1)
 			return ;
 	}
-	ft_sa(stack);
+	ft_sa(stack, 1);
 	order = ft_check_order(stack);
 	if (order == 1)
 		return ;
-	ft_rra(stack);
+	ft_rra(stack, 1);
 	order = ft_check_order(stack);
 	if (order == 1)
 		return ;
-	ft_sa(stack);
+	ft_sa(stack, 1);
 }
 
 static void	ft_smaller(t_stack *stack)
 {
 	int	order;
 
-	ft_rra(stack);
+	ft_rra(stack, 1);
 	order = ft_check_order(stack);
 	if (order == 1)
 		return ;
-	ft_sa(stack);
+	ft_sa(stack, 1);
 }
