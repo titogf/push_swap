@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:42:34 by gfernand          #+#    #+#             */
-/*   Updated: 2023/03/07 12:35:52 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/07 12:55:43 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,14 @@ void	ft_sa(t_stack *stack, int n)
 	list = stack->a;
 	list->content = aux2;
 	if (n == 1)
-		write(1, "sa\n", 3);
-	list = stack->a;
-	while (list)
 	{
-		printf("SA--> %d\n", list->content);
-		list = list->next;
+		write(1, "sa\n", 3);
+		list = stack->a;
+		while (list)
+		{
+			printf("SA--> %d\n", list->content);
+			list = list->next;
+		}
 	}
 }
 

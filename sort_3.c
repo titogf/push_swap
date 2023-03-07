@@ -6,29 +6,20 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:43:28 by gfernand          #+#    #+#             */
-/*   Updated: 2023/03/06 20:08:31 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/07 13:05:12 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static int	ft_min_2_numbers(t_stack *stack);
+
 void	ft_ss(t_stack *stack)
 {
-	t_lst	*list_a;
-	t_lst	*list_b;
-	int		n;
+	int	n;
 
-	list_a = stack->a;
-	n = -1;
-	while (list_a && ++n < 2)
-		list_a = list_a->next;
-	if (n < 2)
-		return ;
-	list_b = stack->b;
-	n = -1;
-	while (list_b && ++n < 2)
-		list_b = list_b->next;
-	if (n < 2)
+	n = ft_min_2_numbers(stack);
+	if (n == 0)
 		return ;
 	ft_sa(stack, 0);
 	ft_sb(stack, 0);
@@ -37,21 +28,10 @@ void	ft_ss(t_stack *stack)
 
 void	ft_rr(t_stack *stack)
 {
-	t_lst	*list_a;
-	t_lst	*list_b;
-	int		n;
+	int	n;
 
-	list_a = stack->a;
-	n = -1;
-	while (list_a && ++n < 2)
-		list_a = list_a->next;
-	if (n < 2)
-		return ;
-	list_b = stack->b;
-	n = -1;
-	while (list_b && ++n < 2)
-		list_b = list_b->next;
-	if (n < 2)
+	n = ft_min_2_numbers(stack);
+	if (n == 0)
 		return ;
 	ft_ra(stack, 0);
 	ft_rb(stack, 0);
@@ -59,6 +39,18 @@ void	ft_rr(t_stack *stack)
 }
 
 void	ft_rrr(t_stack *stack)
+{
+	int	n;
+
+	n = ft_min_2_numbers(stack);
+	if (n == 0)
+		return ;
+	ft_rra(stack, 0);
+	ft_rrb(stack, 0);
+	write (1, "rrr\n", 4);
+}
+
+static int	ft_min_2_numbers(t_stack *stack)
 {
 	t_lst	*list_a;
 	t_lst	*list_b;
@@ -69,14 +61,12 @@ void	ft_rrr(t_stack *stack)
 	while (list_a && ++n < 2)
 		list_a = list_a->next;
 	if (n < 2)
-		return ;
+		return (0);
 	list_b = stack->b;
 	n = -1;
 	while (list_b && ++n < 2)
 		list_b = list_b->next;
 	if (n < 2)
-		return ;
-	ft_rra(stack, 0);
-	ft_rrb(stack, 0);
-	write (1, "rrr\n", 4);
+		return (0);
+	return (1);
 }

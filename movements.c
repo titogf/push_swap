@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:22:12 by gfernand          #+#    #+#             */
-/*   Updated: 2023/03/07 12:39:07 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/07 13:39:11 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,12 @@ void	ft_movements(t_stack *stack, t_nb *nb)
 	ft_pb(stack);
 	ft_pb(stack);
 	ft_pb(stack);
-	ft_sa(stack, 1);
+	ft_pb(stack);
+	ft_pb(stack);
+	ft_pb(stack);
+	ft_sb(stack, 1);
+	ft_rb(stack, 1);
+	ft_rrb(stack, 1);
 	ft_pa(stack);
 	ft_pa(stack);
 	ft_pa(stack);

@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:28:17 by gfernand          #+#    #+#             */
-/*   Updated: 2023/03/06 17:47:43 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/07 13:30:34 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	ft_create_list(t_nb *nb)
 		printf("List-> %d\n", stack->a->content);
 	}
 	stack->a = first_node;
+	stack->b = NULL;
 	ft_movements(stack, nb);
 	ft_free_stack(stack);
 }
