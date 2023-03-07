@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:05:16 by gfernand          #+#    #+#             */
-/*   Updated: 2023/03/07 13:40:34 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/07 13:53:21 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	ft_min_stack_b(t_stack *stack)
 
 	list_b = stack->b;
 	n = -1;
-	while (list_b && ++n < 2)
+	while (++n < 2 && list_b)
 		list_b = list_b->next;
 	if (n < 2)
 		return (0);

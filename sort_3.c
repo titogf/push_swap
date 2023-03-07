@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:43:28 by gfernand          #+#    #+#             */
-/*   Updated: 2023/03/07 13:05:12 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/07 13:51:56 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,13 @@ static int	ft_min_2_numbers(t_stack *stack)
 
 	list_a = stack->a;
 	n = -1;
-	while (list_a && ++n < 2)
+	while (++n < 2 && list_a)
 		list_a = list_a->next;
 	if (n < 2)
 		return (0);
 	list_b = stack->b;
 	n = -1;
-	while (list_b && ++n < 2)
+	while (++n < 2 && list_b)
 		list_b = list_b->next;
 	if (n < 2)
 		return (0);
