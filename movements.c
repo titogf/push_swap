@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:22:12 by gfernand          #+#    #+#             */
-/*   Updated: 2023/03/07 14:03:39 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:46:39 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,8 @@ static void	ft_bigger(t_stack *stack, int aux1, int aux2, int aux3);
 
 void	ft_movements(t_stack *stack, t_nb *nb)
 {
-	if (nb->arguments < 4)
-	{
-		if (nb->arguments == 2)
-			ft_sa(stack, 1);
-		else
-			ft_short_mv(stack);
-		return ;
-	}
+	if (nb->arguments <= 3)
+		ft_short_mv(stack);
 }
 
 void	ft_short_mv(t_stack *stack)
@@ -38,6 +32,11 @@ void	ft_short_mv(t_stack *stack)
 	aux1 = list->content;
 	list = list->next;
 	aux2 = list->content;
+	if (!list->next)
+	{
+		ft_sa(stack, 1);
+		return ;
+	}
 	list = list->next;
 	aux3 = list->content;
 	if (aux1 > aux2)

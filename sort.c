@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:42:34 by gfernand          #+#    #+#             */
-/*   Updated: 2023/03/07 14:01:29 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:52:21 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,7 @@ void	ft_sa(t_stack *stack, int n)
 	list = stack->a;
 	list->content = aux2;
 	if (n == 1)
-	{
 		write(1, "sa\n", 3);
-		list = stack->a;
-		while (list)
-		{
-			printf("SA--> %d\n", list->content);
-			list = list->next;
-		}
-	}
 }
 
 void	ft_pa(t_stack *stack)
@@ -72,18 +64,6 @@ void	ft_pa(t_stack *stack)
 	aux->next = stack->a;
 	stack->a = aux;
 	write(1, "pa\n", 3);
-	list = stack->a;
-	while (list)
-	{
-		printf("STACK_A----> %d\n", list->content);
-		list = list->next;
-	}
-	list = stack->b;
-	while (list)
-	{
-		printf("B_STACK----> %d\n", list->content);
-		list = list->next;
-	}
 }
 
 void	ft_ra(t_stack *stack, int n)
@@ -108,12 +88,6 @@ void	ft_ra(t_stack *stack, int n)
 	list->next = NULL;
 	if (n == 1)
 		write(1, "ra\n", 3);
-	list = stack->a;
-	while (list)
-	{
-		printf("RA----> %d\n", list->content);
-		list = list->next;
-	}
 }
 
 void	ft_rra(t_stack *stack, int n)
@@ -138,9 +112,4 @@ void	ft_rra(t_stack *stack, int n)
 	stack->a = list;
 	if (n == 1)
 		write(1, "rra\n", 4);
-	while (list)
-	{
-		printf("RRA----> %d\n", list->content);
-		list = list->next;
-	}
 }

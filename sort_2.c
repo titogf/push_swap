@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:05:16 by gfernand          #+#    #+#             */
-/*   Updated: 2023/03/07 13:59:31 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:51:40 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,6 @@ void	ft_sb(t_stack *stack, int n)
 	list->content = aux2;
 	if (n == 1)
 		write(1, "sb\n", 3);
-	list = stack->b;
-	while (list)
-	{
-		printf("SB--> %d\n", list->content);
-		list = list->next;
-	}
 }
 
 void	ft_pb(t_stack *stack)
@@ -70,18 +64,6 @@ void	ft_pb(t_stack *stack)
 	aux->next = stack->b;
 	stack->b = aux;
 	write(1, "pb\n", 3);
-	list = stack->a;
-	while (list)
-	{
-		printf("STACK_A----> %d\n", list->content);
-		list = list->next;
-	}
-	list = stack->b;
-	while (list)
-	{
-		printf("B_STACK----> %d\n", list->content);
-		list = list->next;
-	}
 }
 
 void	ft_rb(t_stack *stack, int n)
@@ -106,12 +88,6 @@ void	ft_rb(t_stack *stack, int n)
 	list->next = NULL;
 	if (n == 1)
 		write(1, "rb\n", 3);
-	list = stack->b;
-	while (list)
-	{
-		printf("RB----> %d\n", list->content);
-		list = list->next;
-	}
 }
 
 void	ft_rrb(t_stack *stack, int n)
@@ -136,9 +112,4 @@ void	ft_rrb(t_stack *stack, int n)
 	stack->b = list;
 	if (n == 1)
 		write(1, "rrb\n", 4);
-	while (list)
-	{
-		printf("RRB----> %d\n", list->content);
-		list = list->next;
-	}
 }
