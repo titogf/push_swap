@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:05:16 by gfernand          #+#    #+#             */
-/*   Updated: 2023/03/06 19:44:50 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/07 12:36:39 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,29 +38,29 @@ void	ft_sb(t_stack *stack, int n)
 void	ft_pb(t_stack *stack)
 {
 	t_lst	*aux;
-	t_lst	*list_a;
+	t_lst	*list;
 
 	if (!stack->a)
 		return ;
 	if (!stack->b)
 		stack->b = NULL;
 	aux = stack->a;
-	list_a = stack->a;
-	stack->a = list_a->next;
+	list = stack->a;
+	stack->a = list->next;
 	aux->next = stack->b;
 	stack->b = aux;
 	write(1, "pb\n", 3);
-	list_a = stack->a;
-	while (list_a)
+	list = stack->a;
+	while (list)
 	{
-		printf("STACK_A----> %d\n", list_a->content);
-		list_a = list_a->next;
+		printf("STACK_A----> %d\n", list->content);
+		list = list->next;
 	}
 /*	list_a = stack->b;
-	while (!list_a)
+	while (list)
 	{
-		printf("B_STACK----> %d\n", list_a->content);
-		list_a = list_a->next;
+		printf("B_STACK----> %d\n", list->content);
+		list = list->next;
 	}*/
 }
 
