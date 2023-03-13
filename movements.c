@@ -14,13 +14,21 @@
 
 int	ft_middle_point(t_list *stack, int find);
 void	ft_medium_mv(t_stack *stack);
+void	ft_far(t_stack *stack, int aux, int point);
 
 void	ft_movements(t_stack *stack, t_nb *nb)
 {
+	t_list *list;
 	if (nb->arguments <= 3)
 		ft_short_mv(stack);
 	if (nb->arguments <= 5)
 		ft_medium_mv(stack);
+	list = stack->a;
+	while (list)
+	{
+		printf("FIN -- %d\n", list->content);
+		list = list->next;
+	}
 }
 
 void	ft_short_mv(t_stack *stack)
@@ -51,6 +59,7 @@ void	ft_medium_mv(t_stack *stack)
 {
 	t_list	*list;
 	int	aux;
+	int	point;
 
 	list = stack->a;
 	aux = list->content;
@@ -60,23 +69,40 @@ void	ft_medium_mv(t_stack *stack)
 		if (list->content < aux)
 			aux = list->content;
 	}
+	point = ft_middle_point(stack->a, aux);
+	if (point == 1)
+		ft_far(stack, aux, point);
+	else if (point == 2)
+		ft_far(stack, aux, point);
+}
+
+void	ft_far(t_stack *stack, int aux, int point)
+{
+	t_list	*list;
+
 	list = stack->a;
-	if (ft_middle_point(stack->a, aux) == 1)
+	if (ft_lstsize(list) < 4)
 	{
-		while (list->content != aux)
-		{
-			ft_ra(stack, 1);
-			list = stack->a;
-		}
-		ft_check_order(stack->a);
+		ft_short_mv(stack);
+		ft_pa(stack);
+		ft_pa(stack);
+		return ;
 	}
+	list = stack->a;
+	while (list->content != aux)
+	{
+		if (point == 1)
+			ft_ra(stack, 1);
+		else if (point == 2)
+			ft_rra(stack, 1);
+		list = stack->a;
+	}
+	if (ft_check_order(stack->a) == 1)
+		return ;
 	else
 	{
-		while (list->content != aux)
-		{
-			ft_rra(stack, 1);
-			list = stack->a;
-		}
+		ft_pb(stack);
+		ft_medium_mv(stack);
 	}
 }
 
