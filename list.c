@@ -54,13 +54,13 @@ static void	ft_free_stack(t_stack *stack, t_nb *nb)
 	free (nb);
 }
 
-int	ft_check_order(t_stack *stack)
+int	ft_check_order(t_list *list)
 {
 	t_list	*aux;
 	int		n1;
 	int		n2;
 
-	aux = stack->a;
+	aux = list;
 	while (aux->next)
 	{
 		n1 = aux->content;

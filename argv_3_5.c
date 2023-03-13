@@ -14,33 +14,25 @@
 
 void	ft_bigger_3(t_stack *stack, int aux1, int aux2, int aux3)
 {
-	int	order;
-
 	if (aux3 > aux2 && aux3 < aux1)
 	{
 		ft_ra(stack, 1);
-		order = ft_check_order(stack);
-		if (order == 1)
+		if (ft_check_order(stack->a) == 1)
 			return ;
 	}
 	ft_sa(stack, 1);
-	order = ft_check_order(stack);
-	if (order == 1)
+	if (ft_check_order(stack->a) == 1)
 		return ;
 	ft_rra(stack, 1);
-	order = ft_check_order(stack);
-	if (order == 1)
+	if (ft_check_order(stack->a) == 1)
 		return ;
 	ft_sa(stack, 1);
 }
 
 void	ft_smaller_3(t_stack *stack)
 {
-	int	order;
-
 	ft_rra(stack, 1);
-	order = ft_check_order(stack);
-	if (order == 1)
+	if (ft_check_order(stack->a) == 1)
 		return ;
 	ft_sa(stack, 1);
 }

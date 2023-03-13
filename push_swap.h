@@ -69,7 +69,7 @@ void		ft_ss(t_stack *stack);
 void		ft_rr(t_stack *stack);
 void		ft_rrr(t_stack *stack);
 
-int			ft_check_order(t_stack *stack);
+int			ft_check_order(t_list *aux);
 
 void		ft_smaller_3(t_stack *stack);
 void		ft_bigger_3(t_stack *stack, int aux1, int aux2, int aux3);
