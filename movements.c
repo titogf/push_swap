@@ -6,24 +6,23 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:22:12 by gfernand          #+#    #+#             */
-/*   Updated: 2023/03/07 15:46:39 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:19:37 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_smaller(t_stack *stack);
-static void	ft_bigger(t_stack *stack, int aux1, int aux2, int aux3);
-
 void	ft_movements(t_stack *stack, t_nb *nb)
 {
 	if (nb->arguments <= 3)
 		ft_short_mv(stack);
+	if (nb->arguments <= 5)
+		ft_medium_mv(stack);
 }
 
 void	ft_short_mv(t_stack *stack)
 {
-	t_lst	*list;
+	t_list	*list;
 	int		aux1;
 	int		aux2;
 	int		aux3;
@@ -40,40 +39,24 @@ void	ft_short_mv(t_stack *stack)
 	list = list->next;
 	aux3 = list->content;
 	if (aux1 > aux2)
-		ft_bigger(stack, aux1, aux2, aux3);
+		ft_bigger_3(stack, aux1, aux2, aux3);
 	else
-		ft_smaller(stack);
+		ft_smaller_3(stack);
 }
 
-static void	ft_bigger(t_stack *stack, int aux1, int aux2, int aux3)
+void	ft_medium_mv(t_stack *stack, int find)
 {
-	int	order;
+	t_list	*list;
+	int		middle;
+	int		size;
 
-	if (aux3 > aux2 && aux3 < aux1)
+	size = ft_listsize(stack
+	middle = (size / 2) + 1;
+	list = stack->a;
+	while (list)
 	{
-		ft_ra(stack, 1);
-		order = ft_check_order(stack);
-		if (order == 1)
-			return ;
+		if (list->content == find)
+		list = list->next;
+
 	}
-	ft_sa(stack, 1);
-	order = ft_check_order(stack);
-	if (order == 1)
-		return ;
-	ft_rra(stack, 1);
-	order = ft_check_order(stack);
-	if (order == 1)
-		return ;
-	ft_sa(stack, 1);
-}
-
-static void	ft_smaller(t_stack *stack)
-{
-	int	order;
-
-	ft_rra(stack, 1);
-	order = ft_check_order(stack);
-	if (order == 1)
-		return ;
-	ft_sa(stack, 1);
 }

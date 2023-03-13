@@ -16,7 +16,7 @@ static int	ft_min_stack_a(t_stack *stack);
 
 static int	ft_min_stack_a(t_stack *stack)
 {
-	t_lst	*list_a;
+	t_list	*list_a;
 	int		n;
 
 	list_a = stack->a;
@@ -32,7 +32,7 @@ void	ft_sa(t_stack *stack, int n)
 {
 	int		aux1;
 	int		aux2;
-	t_lst	*list;
+	t_list	*list;
 
 	if (n == 1)
 	{
@@ -53,8 +53,8 @@ void	ft_sa(t_stack *stack, int n)
 
 void	ft_pa(t_stack *stack)
 {
-	t_lst	*aux;
-	t_lst	*list;
+	t_list	*aux;
+	t_list	*list;
 
 	if (!stack->b)
 		return ;
@@ -68,8 +68,8 @@ void	ft_pa(t_stack *stack)
 
 void	ft_ra(t_stack *stack, int n)
 {
-	t_lst	*swap_node;
-	t_lst	*list;
+	t_list	*swap_node;
+	t_list	*list;
 
 	if (n == 1)
 	{
@@ -92,8 +92,8 @@ void	ft_ra(t_stack *stack, int n)
 
 void	ft_rra(t_stack *stack, int n)
 {
-	t_lst	*aux;
-	t_lst	*list;
+	t_list	*aux;
+	t_list	*list;
 
 	if (n == 1)
 	{

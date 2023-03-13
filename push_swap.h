@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:44:50 by gfernand          #+#    #+#             */
-/*   Updated: 2023/03/07 13:03:57 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:25:59 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-# include "libft/libft.h"
-
-typedef struct s_lst
+# include "libft.h"
+/*
+typedef struct s_list
 {
 	int				content;
-	struct s_lst	*next;
-}	t_lst;
-
+	struct s_list	*next;
+}	t_list;
+*/
 typedef struct s_stack
 {
-	t_lst	*a;
-	t_lst	*b;
+	t_list	*a;
+	t_list	*b;
 }	t_stack;
 
 typedef struct s_sort
@@ -76,5 +76,8 @@ void		ft_rr(t_stack *stack);
 void		ft_rrr(t_stack *stack);
 
 int			ft_check_order(t_stack *stack);
+
+void		ft_smaller_3(t_stack *stack);
+void		ft_bigger_3(t_stack *stack, int aux1, int aux2, int aux3);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 12:19:20 by gfernand          #+#    #+#             */
-/*   Updated: 2023/02/06 10:58:58 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:31:21 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,19 @@ int	ft_atoi(char *str)
 	free (str);
 	return (nb * sig);
 }
+
+static void	ft_put_finish(char *c)
+{
+		int i;
+
+    i = 0;
+      while (c[i])
+       {
+           write(2, &c[i], 1);
+           i++;
+       }
+       exit (1);
+   }
 
 static int	ft_max_int(char *str, int i, int nb, int sig)
 {

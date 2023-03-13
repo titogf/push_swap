@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:28:17 by gfernand          #+#    #+#             */
-/*   Updated: 2023/03/07 13:30:34 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:20:47 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@ static void	ft_free_stack(t_stack *stack);
 void	ft_create_list(t_nb *nb)
 {
 	t_stack	*stack;
-	t_lst	*first_node;
+	t_list	*first_node;
 	int		i;
 
 	ft_parse(nb);
 	stack = malloc (sizeof (t_stack));
-	stack->a = (t_lst *)ft_lstnew(nb->num[0]);
+	stack->a = (t_list *)ft_lstnew(nb->num[0]);
 	printf("List-> %d\n", stack->a->content);
 	first_node = stack->a;
 	i = 0;
 	while (++i < nb->arguments)
 	{
-		stack->a->next = (t_lst *)ft_lstnew(nb->num[i]);
+		stack->a->next = (t_list *)ft_lstnew(nb->num[i]);
 		stack->a = stack->a->next;
 		printf("List-> %d\n", stack->a->content);
 	}
@@ -40,7 +40,7 @@ void	ft_create_list(t_nb *nb)
 
 static void	ft_free_stack(t_stack *stack)
 {
-	t_lst	*aux;
+	t_list	*aux;
 
 	while (stack->a)
 	{
@@ -53,7 +53,7 @@ static void	ft_free_stack(t_stack *stack)
 
 int	ft_check_order(t_stack *stack)
 {
-	t_lst	*aux;
+	t_list	*aux;
 	int		n1;
 	int		n2;
 

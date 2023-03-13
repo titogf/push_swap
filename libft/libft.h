@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 14:03:57 by gfernand          #+#    #+#             */
-/*   Updated: 2023/02/20 15:53:48 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:27:26 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "../push_swap.h"
 
 typedef struct s_list
 {

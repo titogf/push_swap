@@ -52,8 +52,8 @@ void	ft_rrr(t_stack *stack)
 
 static int	ft_min_2_numbers(t_stack *stack)
 {
-	t_lst	*list_a;
-	t_lst	*list_b;
+	t_list	*list_a;
+	t_list	*list_b;
 	int		n;
 
 	list_a = stack->a;
