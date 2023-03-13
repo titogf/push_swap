@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:42:32 by gfernand          #+#    #+#             */
-/*   Updated: 2023/03/13 17:24:33 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/13 17:38:32 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 static void	ft_initialise(t_nb *nb);
 
-static void	leaks()
+/*static void	leaks()
 {
 	system("leaks push_swap");
-}
+}*/
 
 int	main(int ac, char **av)
 {
 	t_nb	*nb;
 	int		check;
 
-	atexit(leaks);
+//	atexit(leaks);
 	if (ac < 2)
 		return (0);
 	nb = malloc (sizeof (t_nb));
@@ -38,16 +38,12 @@ int	main(int ac, char **av)
 	if (!nb->num)
 		return (0);
 	check = ft_check_nb(ac, av, nb);
-	if (check == 0 || check == -1)
+	if (check < 1)
 	{
-		if (check == 0)
-		{
-			free (nb->num);
-			free (nb);
-			ft_put_finish("Error\n");
-		}
 		free (nb->num);
 		free (nb);
+		if (check == 0)
+			ft_put_finish("Error\n");
 		return (0);
 	}
 	ft_create_list(nb);
