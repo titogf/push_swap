@@ -73,5 +73,9 @@ int			ft_check_order(t_list *aux);
 
 void		ft_smaller_3(t_stack *stack);
 void		ft_bigger_3(t_stack *stack, int aux1, int aux2, int aux3);
+int			ft_middle_point(t_list *stack, int find);
+void		ft_medium_mv(t_stack *stack);
+void		ft_far(t_stack *stack, int aux, int point);
+int			ft_push_to_stack(t_stack *stack, int turn);
 
 #endif
