@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 12:47:49 by gfernand          #+#    #+#             */
-/*   Updated: 2023/02/20 15:58:06 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/13 16:24:41 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,21 @@ static void	ft_merge_recursion(int *n, int l, int r);
 static void	ft_merge_sort(int *n, int l, int m, int r);
 static void	ft_sort_array(t_sort *sort, int *n, int l, int r);
 
-void	ft_parse(t_nb *nb)
+int	ft_parse(t_nb *nb)
 {
 	int	*aux;
 	int	i;
 
 	aux = malloc (sizeof (int) * nb->arguments);
 	if (!aux)
-		exit (2);
+		return (0);
 	i = -1;
 	while (++i < nb->arguments)
 		aux[i] = nb->num[i];
 	ft_merge_recursion(aux, 0, nb->arguments - 1);
 	ft_positive(nb, aux);
 	free(aux);
+	return (1);
 }
 
 static void	ft_merge_recursion(int *n, int l, int r)

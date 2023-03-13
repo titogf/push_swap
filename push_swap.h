@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:44:50 by gfernand          #+#    #+#             */
-/*   Updated: 2023/03/13 15:25:59 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/13 17:26:04 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include "libft.h"
-/*
-typedef struct s_list
-{
-	int				content;
-	struct s_list	*next;
-}	t_list;
-*/
+
 typedef struct s_stack
 {
 	t_list	*a;
@@ -53,10 +47,10 @@ void		ft_create_list(t_nb *nb);
 
 void		ft_put_finish(char *c);
 
-void		ft_check_nb(int ac, char **av, t_nb *nb);
-void		ft_count(int ac, char **av, t_nb *nb);
+int			ft_check_nb(int ac, char **av, t_nb *nb);
+int			ft_count(int ac, char **av, t_nb *nb);
 
-void		ft_parse(t_nb *nb);
+int			ft_parse(t_nb *nb);
 
 void		ft_movements(t_stack *stack, t_nb *nb);
 void		ft_short_mv(t_stack *stack);

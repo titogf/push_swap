@@ -6,13 +6,13 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:28:17 by gfernand          #+#    #+#             */
-/*   Updated: 2023/03/13 15:20:47 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/13 17:25:43 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_free_stack(t_stack *stack);
+static void	ft_free_stack(t_stack *stack, t_nb *nb);
 
 void	ft_create_list(t_nb *nb)
 {
@@ -20,7 +20,8 @@ void	ft_create_list(t_nb *nb)
 	t_list	*first_node;
 	int		i;
 
-	ft_parse(nb);
+	if (ft_parse(nb) == 0)
+		return ;
 	stack = malloc (sizeof (t_stack));
 	stack->a = (t_list *)ft_lstnew(nb->num[0]);
 	printf("List-> %d\n", stack->a->content);
@@ -35,10 +36,10 @@ void	ft_create_list(t_nb *nb)
 	stack->a = first_node;
 	stack->b = NULL;
 	ft_movements(stack, nb);
-	ft_free_stack(stack);
+	ft_free_stack(stack, nb);
 }
 
-static void	ft_free_stack(t_stack *stack)
+static void	ft_free_stack(t_stack *stack, t_nb *nb)
 {
 	t_list	*aux;
 
@@ -49,6 +50,8 @@ static void	ft_free_stack(t_stack *stack)
 		stack->a = aux;
 	}
 	free (stack);
+	free (nb->num);
+	free (nb);
 }
 
 int	ft_check_order(t_stack *stack)
