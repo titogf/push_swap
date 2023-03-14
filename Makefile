@@ -6,13 +6,13 @@
 #    By: gfernand <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/06 16:03:07 by gfernand          #+#    #+#              #
-#    Updated: 2023/03/13 17:32:21 by gfernand         ###   ########.fr        #
+#    Updated: 2023/03/14 14:46:12 by gfernand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRC = main.c check_nb.c list.c parse.c movements.c sort.c sort_2.c sort_3.c argv_3_5.c
+SRC = main.c check_nb.c list.c parse.c movements.c sort.c sort_2.c sort_3.c functions_3_5.c
 
 RED		= '\033[1;31m'
 GREEN	= '\033[1;32m'

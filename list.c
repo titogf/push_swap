@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:28:17 by gfernand          #+#    #+#             */
-/*   Updated: 2023/03/14 14:36:54 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/14 14:49:18 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ void	ft_create_list(t_nb *nb)
 		return ;
 	stack = malloc (sizeof (t_stack));
 	stack->a = (t_list *)ft_lstnew(nb->num[0]);
-	printf("List-> %d\n", stack->a->content);
+//	printf("List-> %d\n", stack->a->content);
 	first_node = stack->a;
 	i = 0;
 	while (++i < nb->arguments)
 	{
 		stack->a->next = (t_list *)ft_lstnew(nb->num[i]);
 		stack->a = stack->a->next;
-		printf("List-> %d\n", stack->a->content);
+//		printf("List-> %d\n", stack->a->content);
 	}
 	stack->a = first_node;
 	stack->b = NULL;
