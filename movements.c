@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:22:12 by gfernand          #+#    #+#             */
-/*   Updated: 2023/03/13 16:25:23 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/14 14:36:45 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_movements(t_stack *stack, t_nb *nb)
 
 	if (nb->arguments <= 3)
 		ft_short_mv(stack);
-	if (nb->arguments <= 5)
+	if (nb->arguments <= 50)
 		ft_medium_mv(stack);
 	list = stack->a;
 	while (list)
