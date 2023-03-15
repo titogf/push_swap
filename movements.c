@@ -14,18 +14,18 @@
 
 void	ft_movements(t_stack *stack, t_nb *nb)
 {
-	//t_list	*list;
+	t_list	*list;
 
 	if (nb->arguments <= 3)
 		ft_short_mv(stack);
-	if (nb->arguments <= 50)
+	else if (nb->arguments <= 50)
 		ft_medium_mv(stack);
-/*	list = stack->a;
+	list = stack->a;
 	while (list)
 	{
 		printf("FIN -- %d\n", list->content);
 		list = list->next;
-	}*/
+	}
 }
 
 void	ft_short_mv(t_stack *stack)
