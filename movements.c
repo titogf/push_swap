@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-void	ft_long_mv(t_stack *stack);
 int	ft_max_int(t_stack *stack);
 
 void	ft_movements(t_stack *stack, t_nb *nb)
@@ -21,8 +20,8 @@ void	ft_movements(t_stack *stack, t_nb *nb)
 
 	if (nb->arguments <= 3)
 		ft_short_mv(stack);
-	/*else if (nb->arguments <= 50)
-		ft_medium_mv(stack);*/
+	else if (nb->arguments <= 50)
+		ft_medium_mv(stack);
 	else
 		ft_long_mv(stack);
 	list = stack->a;
