@@ -34,21 +34,12 @@ int	ft_atoi(char *str)
 	while (str[i])
 	{
 		nb = nb * 10 + (str[i] - 48);
-		ft_max_int(str, i, nb, sig);
+		if (ft_max_int(str, i, nb, sig) == 0)
+			return (0);
 		i++;
 	}
 	free (str);
 	return (nb * sig);
-}
-
-static void	ft_put_finish(char *c)
-{
-	int	i;
-
-	i = -1;
-	while (c[++i])
-		write(2, &c[i], 1);
-	exit (1);
 }
 
 static int	ft_max_int(char *str, int i, int nb, int sig)
@@ -58,18 +49,18 @@ static int	ft_max_int(char *str, int i, int nb, int sig)
 	if (nb > 214748364)
 	{
 		if (str[i + 1])
-			ft_put_finish("Error\n");
+			return (0);
 	}
 	if (nb == 214748364 && str[i + 1])
 	{
 		if (str[i + 2])
-			ft_put_finish("Error\n");
+			return (0);
 		m = (str[++i] - 48);
 		if (m > 8)
-			ft_put_finish("Error\n");
+			return (0);
 		else if (m == 8 && sig > 0)
-			ft_put_finish("Error\n");
+			return (0);
 		nb = nb * 10 + (str[i] - 48);
 	}
-	return (nb);
+	return (1);
 }
