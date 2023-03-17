@@ -12,14 +12,19 @@
 
 #include "push_swap.h"
 
+void	ft_long_mv(t_stack *stack);
+int	ft_max_int(t_stack *stack);
+
 void	ft_movements(t_stack *stack, t_nb *nb)
 {
 	t_list	*list;
 
 	if (nb->arguments <= 3)
 		ft_short_mv(stack);
-	else if (nb->arguments <= 50)
-		ft_medium_mv(stack);
+	/*else if (nb->arguments <= 50)
+		ft_medium_mv(stack);*/
+	else
+		ft_long_mv(stack);
 	list = stack->a;
 	while (list)
 	{
@@ -71,4 +76,49 @@ void	ft_medium_mv(t_stack *stack)
 		ft_far(stack, aux, point);
 	else if (point == 2)
 		ft_far(stack, aux, point);
+}
+
+void	ft_long_mv(t_stack *stack)
+{
+	t_list	*list;
+	int		i;
+	int		j;
+	int		max_nb;
+	int		max_bits;
+
+	max_nb = ft_max_int(stack);
+	max_bits = 0;
+	while ((max_nb >> max_bits) != 0)
+		max_bits++;
+	i = -1;
+	while (++i < max_bits)
+	{
+		list = stack->a;
+		j = -1;
+		while (++j < (max_nb + 1) && list)
+		{
+			if (((list->content >> i) & 1) == 0)
+				ft_pb(stack);
+			else if (((list->content >> i) & 1) == 1)
+				ft_ra(stack, 1);
+			list = stack->a;
+		}
+		ft_push_to_stack(stack, 2);
+	}
+}
+
+int	ft_max_int(t_stack *stack)
+{
+	t_list	*list;
+	int		max;
+
+	list = stack->a;
+	max = 0;
+	while (list)
+	{
+		if (list->content > max)
+			max = list->content;
+		list = list->next;
+	}
+	return (max);
 }
