@@ -91,6 +91,7 @@ static int	ft_numbers(char *av, t_nb *nb)
 	int		i;
 
 	nb->str = ft_substr(av, nb->start, nb->len);
+	nb->count_str++;
 	i = 0;
 	while (nb->str[i])
 		i++;
@@ -118,6 +119,8 @@ static int	ft_repnb(t_nb *nb)
 	int	i;
 	int	j;
 
+	if (nb->arguments > nb->count_str)
+		return (0);
 	i = -1;
 	while (++i < nb->arguments)
 	{

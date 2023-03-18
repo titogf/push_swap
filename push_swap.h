@@ -40,6 +40,7 @@ typedef struct s_nb
 	int		len;
 	int		start;
 	int		arguments;
+	int		count_str;
 	char	*str;
 }	t_nb;
 

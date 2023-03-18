@@ -53,6 +53,7 @@ int	main(int ac, char **av)
 static void	ft_initialise(t_nb *nb)
 {
 	nb->arguments = 0;
+	nb->count_str = 0;
 	nb->start = -1;
 	nb->arr = -1;
 }
