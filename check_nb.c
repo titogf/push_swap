@@ -97,16 +97,17 @@ static int	ft_numbers(char *av, t_nb *nb)
 		i++;
 	if (i > 9)
 	{
-		if (i > 11)
-			return (0);
-		if (i == 11)
+		if (i > 11 || (i == 11 && (nb->str[0] != '+' && nb->str[0] != '-')))
 		{
-			if (nb->str[0] != '+' && nb->str[0] != '-')
-				return (0);
+			free (nb->str);
+			return (0);
 		}
 		nb->num[++nb->arr] = ft_atoi(nb->str);
 		if (nb->num[nb->arr] == 0)
+		{
+			free (nb->str);
 			return (0);
+		}
 	}
 	else if (i <= 9)
 		nb->num[++nb->arr] = ft_atoi(nb->str);
