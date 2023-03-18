@@ -46,7 +46,7 @@ typedef struct s_nb
 
 void		ft_create_list(t_nb *nb);
 
-void		ft_put_finish(char *c);
+void		ft_put_finish(char *c, t_nb *nb);
 
 int			ft_check_nb(int ac, char **av, t_nb *nb);
 int			ft_count(int ac, char **av, t_nb *nb);
