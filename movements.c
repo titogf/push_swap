@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:22:12 by gfernand          #+#    #+#             */
-/*   Updated: 2023/03/14 14:49:00 by gfernand         ###   ########.fr       */
+/*   Updated: 2023/03/20 14:48:34 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@ int	ft_max_int(t_stack *stack);
 
 void	ft_movements(t_stack *stack, t_nb *nb)
 {
-	t_list	*list;
+//	t_list	*list;
 
 	if (nb->arguments <= 3)
 		ft_short_mv(stack);
-	else if (nb->arguments <= 50)
+	else if (nb->arguments <= 60)
 		ft_medium_mv(stack);
 	else
 		ft_long_mv(stack);
-	list = stack->a;
+/*	list = stack->a;
 	while (list)
 	{
 		printf("FIN -- %d\n", list->content);
 		list = list->next;
-	}
+	}*/
 }
 
 void	ft_short_mv(t_stack *stack)

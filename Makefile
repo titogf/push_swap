@@ -6,7 +6,7 @@
 #    By: gfernand <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/06 16:03:07 by gfernand          #+#    #+#              #
-#    Updated: 2023/03/14 14:46:12 by gfernand         ###   ########.fr        #
+#    Updated: 2023/03/20 14:48:55 by gfernand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ OBJS = $(SRC:.c=.o)
 LIBFT_PATH = libft/
 LIBFT = libft/libft.a
 CC = gcc
-FLAGS = -Wall -Werror -Wextra #-fsanitize=address
+FLAGS = -Wall -Werror -Wextra -fsanitize=address
 
 all: $(NAME)
 
